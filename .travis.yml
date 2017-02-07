@@ -23,7 +23,7 @@ after_success: |
     git add .
     git -c user.name='storecorebot' -c user.email='travis@storecore.org' commit -m "build ${TRAVIS_COMMIT::8}" > /dev/null 2>&1
     echo "Pushing content to GitHub"
-    git push --force --quite "https://storecorebot:${GITHUB_API_KEY}@github.com/storecore/test.storecore.io.git" master:gh-pages &2>/dev/null
+    git push --force --quiet "https://storecorebot:${GITHUB_API_KEY}@github.com/storecore/test.storecore.io.git" master:gh-pages &2>/dev/null
   fi
 env:
   global:
