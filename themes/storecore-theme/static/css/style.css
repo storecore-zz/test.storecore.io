@@ -1176,9 +1176,9 @@ body {
     -ms-flex-align: center;
     align-items: center; }
   .top-menu .logo {
-    height: 40px;
+    height: 30px;
     width: 40px;
-    background-image: url("../img/005-vamp/Logo/autobot_logo.svg");
+    background-image: url("../img/005-vamp/Logo/shield-green.svg");
     background-size: contain; }
   .top-menu .title { color: #fff; font-size: 34px;}
   .top-menu .right {
@@ -1228,7 +1228,7 @@ body {
   border-bottom: none;
   box-shadow: 0 4px 2px -2px rgba(20, 45, 60, 0.25); }
   .top-menu.active .logo {
-    background-image: url("../img/005-vamp/Logo/autobot_logo.svg"); }
+    background-image: url("../img/005-vamp/Logo/shield-green.svg"); }
   .top-menu.active .title {
     color: #142D3C; }
   .top-menu.active .top-menu-item {
