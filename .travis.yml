@@ -21,7 +21,7 @@ install:
   - export PATH="/tmp:$PATH"
 script: npm install && gulp build:prod
 after_success: |
-  if [ -n "$GITHUB_API_KEY" ] && [ ${TRAVIS_PULL_REQUEST} == "false" ] && [ $TRAVIS_BRANCH == "master" ]; then
+  if [ -n "$GITHUB_API_KEY" ] && [ ${TRAVIS_PULL_REQUEST} == "false" ] && [ $TRAVIS_BRANCH == "test" ]; then
     GIT_COMMIT=`git rev-parse --short HEAD`
     cd ./public && cp ../CNAME ./CNAME
     git init > /dev/null 2>&1
