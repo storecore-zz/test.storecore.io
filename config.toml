@@ -56,7 +56,7 @@ googleAnalytics = ""
 
 # Top Menu Items
 [[menu.main]]
-	name   = "Why use Vamp?"
+	name   = "Why use StoreCore?"
 	url    = "/why-use-vamp/why-use-vamp/"
 	identifier = "why-use-vamp-top"
 	weight = 10
