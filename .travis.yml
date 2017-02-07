@@ -22,11 +22,10 @@ install:
 script: npm install && gulp build:prod
 after_success: |
   if [ -n "$GITHUB_API_KEY" ] && [ ${TRAVIS_PULL_REQUEST} == "false" ] && [ $TRAVIS_BRANCH == "test" ]; then
-    GIT_COMMIT=`git rev-parse --short HEAD`
     cd ./public && cp ../CNAME ./CNAME
     git init > /dev/null 2>&1
     git add .
-    git -c user.name='storecorebot' -c user.email='travis@storecore.org' commit -m "build ${GIT_COMMIT}" > /dev/null 2>&1
+    git -c user.name='storecorebot' -c user.email='travis@storecore.org' commit -m "build ${TRAVIS_COMMIT::8}" > /dev/null 2>&1
     echo "Pushing content to GitHub"
     git push --force "https://${GITHUB_API_KEY}@github.com/storecore/test.storecore.io.git" master:gh-pages
   fi
