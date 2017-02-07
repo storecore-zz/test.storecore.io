@@ -1,0 +1,21 @@
+{{ partial "head" . }}
+
+<div class="single-page">
+    {{ partial "nav" . }}
+</div>
+<div class="page search-page">
+    <div class="container markdowned">
+        <div class="search-results-for">
+            <h1 class="h1">Blog</h1>
+        </div>
+        <div class="markdown">
+            {{ range .Data.Pages.GroupByDate "Jan, 2006" "desc"}}
+              {{ range .Pages.ByPublishDate }}
+                  {{ partial "blogs.html" . }}
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+    </div>
+</div>
+{{ partial "footer" .}}

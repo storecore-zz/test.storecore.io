@@ -1,10 +1,10 @@
 ---
 title: "Going native - building native packages for Vamp"
 date: "2015-08-05"
-tags: ["articles", "sbt-native-packager","vamp","debian","homebrew"] 
-category: ["articles"] 
-author: "Matthijs Dekker" 
 type: blog 
+tags: ["articles", "sbt-native-packager","vamp","debian","homebrew"]
+category: ["articles"]
+author: "Matthijs Dekker"
 description: "Improving you experience using Vamp starts with how you install Vamp. We decided to create native packages, which will make your life easier, without complicating ours (to much). In this technical write up we tell you how we did it."
 ---
 
@@ -16,10 +16,10 @@ Okay, we already did the hard part: We designed and created the software, perfor
 
 Only thing you had to do, is download the file, unzip it, put it contents in the correct directory, change the configuration files and write some startup scripts. And repeat these steps for every Vamp module. Easy as eating pie, right?
 
-We didn't think so either. 
+We didn't think so either.
 
 Time to go native.
-<!--more--> 
+<!--more-->
 
 ## Targeting platforms
 

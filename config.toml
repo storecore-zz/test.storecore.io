@@ -4,6 +4,7 @@ title = "StoreCore"
 theme = "storecore-theme"
 metadataformat = "yaml"
 canonifyurls = true
+pluralizeListTitles = false
 
 # Enable Google Analytics by entering your tracking id
 googleAnalytics = ""
@@ -36,13 +37,21 @@ googleAnalytics = ""
 	# Syntax highlighting theme
 	highlight_css  = ""
 
-	[params.palette]
-    	primary = "pink"
-    	accent  = "pink"
+	dateform = "Jan 2, 2006"
+	dateformfull = "Mon Jan 2 2006 15:04:05 MST"
 
-    [params.font]
-    	text = "Roboto"
-    	code = "Roboto Mono"
+[params.recent_posts]
+  enable = true
+  title = "From our blog"
+  subtitle = "Pellen"
+
+[params.palette]
+	primary = "pink"
+	accent  = "pink"
+
+[params.font]
+	text = "Roboto"
+	code = "Roboto Mono"
 
 [social]
 	twitter = "magneticio"
@@ -72,9 +81,14 @@ googleAnalytics = ""
 	weight = 30
 
 [[menu.main]]
+	name   = "Blog"
+	url    = "/blog/"
+	weight = 40
+
+[[menu.main]]
 	name   = "Support"
 	url    = "/support/"
-	weight = 40
+	weight = 50
 
 # Side Menu Items, Parent should match the identifier of the Top Menu Item
 [[menu.main]]

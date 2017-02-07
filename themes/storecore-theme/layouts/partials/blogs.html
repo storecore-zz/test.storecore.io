@@ -1,0 +1,9 @@
+{{ $dateFormat := default "Mon Jan 2, 2006" (index .Site.Params "date_format") }}
+
+<a href='{{ .Permalink }}'><h1 class="content-header">{{ .Title }} {{ if .IsDraft }} (Draft){{ end }}</h1></a>
+<p class="blog-post-meta"><time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format $dateFormat }}</time> by {{ .Params.author | default .Site.Params.author }}{{ if or (.Params.categories) (.Params.tags) }} in {{ partial "meta-terms.html" . }}{{ end }}</p>
+
+<div class="markdowned">
+{{ .Summary }}
+  <a href='{{ .Permalink }}'>{{ i18n "readMore" }}</a>
+</div>
