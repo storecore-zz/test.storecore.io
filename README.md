@@ -1,14 +1,14 @@
-# New vamp.io
+# StoreCore.io
 
-This is the source for the new [vamp.io](http://vamp.io) site. 
+This is the source for the [storecore.io](http://storecore.io) site.
 ## Setup HUGO
-    
+
 1. Clone this repo
-    
+
         $ git clone https://github.com/magneticio/vamp.io.git
-        
+
 2. Download Hugo from [http://gohugo.io](http://gohugo.io) or install using Homebrew:
-    
+
         $ brew update && brew install hugo
 
 3. Run hugo in watch mode and start adding content under the `content/` tree
@@ -34,7 +34,7 @@ This is the source for the new [vamp.io](http://vamp.io) site.
 |-----------|-------|-------------------------------------------------- |
 |name       |string |Name that will show up in the top menu.            |  
 |url        |string |Explicit url to wich the page should point to.     |
-|identifier |string |Should be **unique** for every item!               | 
+|identifier |string |Should be **unique** for every item!               |
 |weight     |int    |For the order of menu items, lower is more on top  |
 
 ### Side Menu item
@@ -55,7 +55,7 @@ This is the source for the new [vamp.io](http://vamp.io) site.
 |name       |string |Name that will show up in the side menu.           |
 |parent     |string |Identifier of the top menu item under wich this page resides|
 |url        |string |Explicit url to wich the page should point to.     |
-|identifier |string |Should be **unique** for every item!               | 
+|identifier |string |Should be **unique** for every item!               |
 |weight     |int    |For the order of menu items, lower is more on top  |
 
 ### Side submenu item
@@ -63,7 +63,7 @@ This is the source for the new [vamp.io](http://vamp.io) site.
 2. At the top of the page add this to the parameter:
 ```
 menu:
-    main: 
+    main:
         name: "Side menu name"
         parent: "unique-sub-identifier"
         weight: 20
@@ -99,7 +99,7 @@ menu:
 **api/v1.0.0/test1.md**
 ```
 menu:
-    main: 
+    main:
         name: "Test01"
         parent: "unique-sub-identifier"
         identifier: 'test01-v1' #Different from v2.0.0
@@ -108,7 +108,7 @@ menu:
 **api/v2.0.0/test1/md**
 ```
 menu:
-    main: 
+    main:
         name: "Test02"
         parent: "unique-sub-identifier"
         identifier: 'test01-v2' #Different from v1.0.0
@@ -130,5 +130,3 @@ menu:
 aliases:
     - /using-vamp/
 ```
-
-
