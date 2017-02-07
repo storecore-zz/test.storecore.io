@@ -1177,9 +1177,10 @@ body {
     align-items: center; }
   .top-menu .logo {
     height: 40px;
-    width: 120px;
-    background-image: url("../img/005-vamp/Logo/logo-long-white.svg");
+    width: 40px;
+    background-image: url("../img/005-vamp/Logo/autobot_logo.svg");
     background-size: contain; }
+  .top-menu .title { color: #fff; font-size: 34px;}
   .top-menu .right {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1227,7 +1228,9 @@ body {
   border-bottom: none;
   box-shadow: 0 4px 2px -2px rgba(20, 45, 60, 0.25); }
   .top-menu.active .logo {
-    background-image: url("../img/005-vamp/Logo/logo-long-colour.svg"); }
+    background-image: url("../img/005-vamp/Logo/autobot_logo.svg"); }
+  .top-menu.active .title {
+    color: #142D3C; }
   .top-menu.active .top-menu-item {
     color: #142D3C; }
   .top-menu.active .github-logo {

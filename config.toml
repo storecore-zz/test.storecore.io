@@ -19,8 +19,8 @@ googleAnalytics = ""
 	repo_url = "https://github.com/storecore/core"
 
 	version = "0.0.1"
-	logo = "images/logo.svg"
-	favicon = "images/logo.svg"
+	logo = "images/autobot_logo.svg"
+	favicon = "images/autobot_logo.svg"
 
 	permalink = "#"
 

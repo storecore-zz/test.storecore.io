@@ -170,7 +170,7 @@
               "text": "Service discovery",
               "visible": true
             }
-            ],
+          ],
           "text": "Use cases",
           "visible": true
         },
@@ -192,7 +192,7 @@
               "text": "Frameworks and tools",
               "visible": true
             }
-            ],
+          ],
           "text": "Vamp compared to...",
           "visible": true
         },
@@ -265,8 +265,7 @@
         },
         {
           "path": "documentation/installation",
-          "children":
-          [
+          "children": [
             {
               "path": "documentation/installation",
               "text": "Overview",
@@ -491,7 +490,7 @@
           "text": "Release notes",
           "visible": true
         }
-        ],
+      ],
       "text": "Documentation",
       "visible": true
     },
