@@ -19,7 +19,7 @@ script: npm install && gulp build:prod
 after_success: |
   if [ -n "$GITHUB_API_KEY" ] && [ ${TRAVIS_PULL_REQUEST} == "false" ] && [ $TRAVIS_BRANCH == "test" ]; then
     cd ./public && cp ../CNAME ./CNAME
-    git init
+    git init > /dev/null
     git add .
     git -c user.name='storecorebot' -c user.email='travis@storecore.org' commit -m "build ${TRAVIS_COMMIT::8}"
     echo "Pushing content to GitHub"
