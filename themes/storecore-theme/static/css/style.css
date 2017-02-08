@@ -639,7 +639,7 @@ button:focus {
   font-size: 13px;
   color: #3E3E42; }
 
-.text-header, .markdowned th {
+.text-header, . th {
   font-weight: 500;
   font-size: 14px;
   color: #56555B; }
@@ -1005,7 +1005,7 @@ button:focus {
   margin-top: 0; }
 
 .markdowned h3 {
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 500;
   color: #56555B;
   line-height: 1.8;
@@ -1128,7 +1128,9 @@ button:focus {
   width: 100%; }
 
 .markdowned th {
-  text-transform: capitalize; }
+  font-size: 16px;
+  color: #56555B;
+  text-transform: uppercase; }
 
 .markdowned td, .markdowned th {
   text-align: left;
@@ -1143,9 +1145,6 @@ button:focus {
   -webkit-transition: 0.1s ease-in background-color;
   transition: 0.1s ease-in background-color;
   border-bottom: none; }
-
-.markdowned tr:hover td {
-  background-color: #f2f2f2; }
 
 .date {
   color: #6991AA;
@@ -4467,5 +4466,4 @@ h4:hover .anchor-hover {
   clip: auto;
 }
 
-.hljs{display:block;overflow-x:auto;padding:0.5em;background:#F0F0F0}.hljs,.hljs-subst{color:#444}.hljs-comment{color:#888888}.hljs-keyword,.hljs-attribute,.hljs-selector-tag,.hljs-meta-keyword,.hljs-doctag,.hljs-name{font-weight:bold}.hljs-type,.hljs-string,.hljs-number,.hljs-selector-id,.hljs-selector-class,.hljs-quote,.hljs-template-tag,.hljs-deletion{color:#880000}.hljs-title,.hljs-section{color:#880000;font-weight:bold}.hljs-regexp,.hljs-symbol,.hljs-variable,.hljs-template-variable,.hljs-link,.hljs-selector-attr,.hljs-selector-pseudo{color:#BC6060}.hljs-literal{color:#78A960}.hljs-built_in,.hljs-bullet,.hljs-code,.hljs-addition{color:#397300}.hljs-meta{color:#1f7199}.hljs-meta-string{color:#4d99bf}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}
-/* cyrillic-ext */
+.hljs{display:block;overflow-x:auto;padding:0.5em;color:#9B9B99;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-keyword,.hljs-formula{color:#c678dd}.hljs-section,.hljs-name,.hljs-selector-tag,.hljs-deletion,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-string,.hljs-regexp,.hljs-addition,.hljs-attribute,.hljs-meta-string{color:#98c379}.hljs-built_in,.hljs-class .hljs-title{color:#e6c07b}.hljs-attr,.hljs-variable,.hljs-template-variable,.hljs-type,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-number{color:#d19a66}.hljs-symbol,.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-title{color:#61aeee}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}.hljs-link{text-decoration:underline}*/
