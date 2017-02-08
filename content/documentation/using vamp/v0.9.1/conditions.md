@@ -7,14 +7,14 @@ menu:
     weight: 70
 ---
 
-{{< note title="The information on this page is written for Vamp v0.9.1" >}}
+{{< warning title="The information on this page is written for Vamp v0.9.1" >}}
 
 * Switch to the [latest version of this page](/documentation/using-vamp/conditions).
 * Read the [release notes](/documentation/release-notes/latest) for the latest Vamp release.
-{{< /note >}}
+{{< /warning >}}
 
 Conditions are used by gateways to filter incoming traffic for routing between services in a cluster.
-Read more about [gateway usage](/documentation/using-vamp/v0.9.1/gateways/#gateway-usage). You can define conditions inline in a blueprint or store them separately under a unique name on the `/conditions` endpoint and just use that name to reference them from a blueprint. 
+Read more about [gateway usage](/documentation/using-vamp/v0.9.1/gateways/#gateway-usage). You can define conditions inline in a blueprint or store them separately under a unique name on the `/conditions` endpoint and just use that name to reference them from a blueprint.
 
 #### Example - simple inline condition
 
@@ -26,7 +26,7 @@ condition_strength: 10%  # Amount of traffic for this service in percents.
 condition: User-Agent = IOS
 ```
 
-## Create a condition 
+## Create a condition
 
 Creating conditions is quite easy. Checking Headers, Cookies, Hosts etc. is all possible.
 Under the hood, Vamp uses Haproxy's ACL's ([cbonte.github.io/haproxy-dconv - 7.1 ACL basics](http://cbonte.github.io/haproxy-dconv/configuration-1.5.html#7.1)) and you can use the exact ACL definition right in the blueprint in the `condition` field of a condition.

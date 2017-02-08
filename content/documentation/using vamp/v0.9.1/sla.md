@@ -7,11 +7,11 @@ menu:
     weight: 90
 ---
 
-{{< note title="The information on this page is written for Vamp v0.9.1" >}}
+{{< warning title="The information on this page is written for Vamp v0.9.1" >}}
 
 * Switch to the [latest version of this page](/documentation/using-vamp/sla).
 * Read the [release notes](/documentation/release-notes/latest) for the latest Vamp release.
-{{< /note >}}
+{{< /warning >}}
 
 SLA stands for "Service Level Agreement". Vamp uses it to define a pre-described set of boundaries to a service and the actions that should take place once the service crosses those boundaries. In essence, an SLA and its associated escalation is a workflow that is checked and controlled by Vamp based on the runtime behaviour of a service. SLAs and escalations are defined with the VAMP DSL.
 
@@ -36,9 +36,9 @@ Vamp currently ships with the following SLA types:
 
 * response_time_sliding_window
 
-### Response time with sliding window 
+### Response time with sliding window
 
-The `response_time_sliding_window` SLA triggers events based on response times. 
+The `response_time_sliding_window` SLA triggers events based on response times.
 
 #### Example - SLA defined inline in a blueprint.
 
@@ -77,15 +77,15 @@ clusters:
       window:
         interval: 600 # Time period in seconds used for
                       # average response time aggregation.
-        cooldown: 600 # Time period in seconds. During this 
-                      # period no new escalation events will 
-                      # be generated. New event may be expected 
-                      # not before cooldown + interval time has 
-                      # been reached after the last event. 
-     
+        cooldown: 600 # Time period in seconds. During this
+                      # period no new escalation events will
+                      # be generated. New event may be expected
+                      # not before cooldown + interval time has
+                      # been reached after the last event.
+
       # List of escalations.
       escalations:
-        - 
+        -
           type: scale_instances
           minimum: 1
           maximum: 3

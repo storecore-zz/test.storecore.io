@@ -7,11 +7,11 @@ menu:
     weight: 130
 ---
 
-{{< note title="The information on this page is written for Vamp v0.9.1" >}} 
+{{< warning title="The information on this page is written for Vamp v0.9.1" >}}
 
 * Switch to the [latest version of this page](/documentation/using-vamp/sticky-sessions).
 * Read the [release notes](/documentation/release-notes/latest) for the latest Vamp release.
-{{< /note >}}
+{{< /warning >}}
 
 Vamp supports `route` and `instance` level sticky sessions.
 
@@ -33,7 +33,7 @@ clusters:
           weight: 50%
         sava:1.1.0:
           weight: 50%
-          
+
     services:
       -
         breed:
@@ -43,7 +43,7 @@ clusters:
             port: 8080/http
           environment_variables:
             debug[SAVA_DEBUG]: true           # to show debug information such as instance id
-            
+
         scale:
           cpu: 0.2
           memory: 256MB
@@ -56,7 +56,7 @@ clusters:
             port: 8080/http
           environment_variables:
             debug[SAVA_DEBUG]: true
-            
+
         scale:
           cpu: 0.2
           memory: 256MB
@@ -65,7 +65,7 @@ clusters:
 
 
 
-## Instance Level 
+## Instance Level
 
 A common use case is when the end users need to be served by the same instance (e.g. stateful application).
 
@@ -83,7 +83,7 @@ clusters:
           weight: 50%
         sava:1.1.0:
           weight: 50%
-          
+
     services:
       -
         breed:
@@ -93,7 +93,7 @@ clusters:
             port: 8080/http
           environment_variables:
             debug[SAVA_DEBUG]: true           # to show debug information such as instance id
-            
+
         scale:
           cpu: 0.2
           memory: 256MB
@@ -106,7 +106,7 @@ clusters:
             port: 8080/http
           environment_variables:
             debug[SAVA_DEBUG]: true
-            
+
         scale:
           cpu: 0.2
           memory: 256MB
@@ -131,9 +131,9 @@ gateways:
       sava2/port:
         weight: 10%
 clusters:
-  sava1: 
+  sava1:
     ...
-  sava2: 
+  sava2:
     ...
 ```
 

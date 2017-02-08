@@ -7,11 +7,11 @@ menu:
     weight: 80
 ---
 
-{{< note title="The information on this page is written for Vamp v0.9.1" >}} 
+{{< warning title="The information on this page is written for Vamp v0.9.1" >}}
 
 * Switch to the [latest version of this page](/documentation/using-vamp/events).
 * Read the [release notes](/documentation/release-notes/latest) for the latest Vamp release.
-{{< /note >}}
+{{< /warning >}}
 
 Vamp collects events on all running services. Interaction with the API also creates events, like updating blueprints or deleting a deployment. Furthermore, Vamp allows third party applications to create events and trigger Vamp actions.
 
@@ -37,7 +37,7 @@ All events are stored and retrieved using the Event API that is part of Vamp.
 All events stick to some basic rules:
 
 
-* All data in Vamp are events. 
+* All data in Vamp are events.
 * Values can be any JSON object or it can be empty.
 * Timestamps are in ISO8601/RFC3339.
 * Timestamps are optional. If not provided, Vamp will insert the current time.
@@ -50,18 +50,18 @@ All events stick to some basic rules:
 
 In all of Vamp's components we follow a REST (resource oriented) schema, for instance:
 ```
-/deployments/{deployment_name} 
+/deployments/{deployment_name}
 /deployments/{deployment_name}/clusters/{cluster_name}/services/{service_name}
 ```
 Tagging is done using a very similar schema: "{resource_group}", "{resource_group}:{name}". For example:
 
 ```
 [
-    "deployments", 
-    "deployments:{deployment_name}", 
-    "clusters", 
-    "clusters:{cluster_name}", 
-    "services", 
+    "deployments",
+    "deployments:{deployment_name}",
+    "clusters",
+    "clusters:{cluster_name}",
+    "services",
     "services:{service_name}"
 ]
 ```
@@ -83,7 +83,7 @@ the default page size for a set of returned events is 30.
 * [Response time for a cluster](/documentation/using-vamp/v0.9.1/events/#example-2)
 * [Current sessions for a service](/documentation/using-vamp/v0.9.1/events/#example-3)
 * [ll known events for a service](/documentation/using-vamp/v0.9.1/events/#example-4)
- 
+
 #### Example 1
 **Get all events**
 
@@ -105,12 +105,12 @@ GET request with body - similar to approach used by Elasticsearch.
 }
 ```
 
-#### Example 2 
+#### Example 2
 **Response time for a cluster**
 
 The below query gets the most recent response time events for the "frontend" cluster in the "d9b42796-d8f6-431b-9230-9d316defaf6d" deployment.
 
-**Notice** the "gateways:<UUID>", "metrics:responseTime" and "gateways" tags. This means "give me the response time of this specific gateway at the gateway level". The response will echo back the events in the time range with the original set of tags associated with the events. 
+**Notice** the "gateways:<UUID>", "metrics:responseTime" and "gateways" tags. This means "give me the response time of this specific gateway at the gateway level". The response will echo back the events in the time range with the original set of tags associated with the events.
 
 `GET /api/v1/events`
 
@@ -210,7 +210,7 @@ GET method can be also used with `tag` parameter (may be more convenient):
 
 ## Archiving
 
-All changes in artifacts (creation, update or deletion) triggered by REST API calls are archived. We store the type of event and the original representation of the artifact. It's a bit like a Git log. 
+All changes in artifacts (creation, update or deletion) triggered by REST API calls are archived. We store the type of event and the original representation of the artifact. It's a bit like a Git log.
 
 Here is an example event:
 

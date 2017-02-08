@@ -7,13 +7,13 @@ menu:
     weight: 40
 ---
 
-{{< note title="The information on this page is written for Vamp v0.9.1" >}}
+{{< warning title="The information on this page is written for Vamp v0.9.1" >}}
 
 * Switch to the [latest version of this page](/documentation/using-vamp/deployments).
 * Read the [release notes](/documentation/release-notes/latest) for the latest Vamp release.
-{{< /note >}}
+{{< /warning >}}
 
-A deployment is a "running" blueprint. Over time, new blueprints can be merged with existing deployments or parts of the running blueprint can be removed from it. Each deployment can be exported as a blueprint and 
+A deployment is a "running" blueprint. Over time, new blueprints can be merged with existing deployments or parts of the running blueprint can be removed from it. Each deployment can be exported as a blueprint and
 copy / pasted to another environment, or even to the same environment to function as a clone.
 
 ## Create a deployment
@@ -50,7 +50,7 @@ A common Vamp deployment scenario is to introduce a new version of the service t
 Merging of new services is performed as a deployment update. You can merge in many ways:
 
 - Send a `PUT` request to the `/deployments/{deployment_name}` endpoint.
-- Use the UI to update a deployment using the "Edit deployment" button. 
+- Use the UI to update a deployment using the "Edit deployment" button.
 - Use the CLI with a combination of the `vamp merge` and `vamp deploy` commands.
 
 If a service already exists then only the gateways and scale will be updated. Otherwise a new service will be added. If a new cluster doesn't exist in the deployment, it will be added.
@@ -87,7 +87,7 @@ clusters:
 
   recommendation:
     breed: recommendation_1.0
- 
+
 ```
 
 Now our deployment (in simplified blueprint format) looks like this:
@@ -105,7 +105,7 @@ clusters:
     services:
       -  breed: monarch_1.0
       -  breed: monarch_1.1
-          
+
     gateways:
       monarch_1.0:
         weight: 100%
@@ -115,7 +115,7 @@ clusters:
   recommendation:
     services:
       - breed: recommendation_1.0
-    
+
     gateways:
       recommendation_1.0:
         weight: 100%
@@ -132,7 +132,7 @@ clusters:
     services:
       - breed: monarch_1.0
       - breed: monarch_1.1
-          
+
     gateways:
       monarch_1.0:
         weight: 90%
@@ -153,7 +153,7 @@ In the last few examples we have shown the following:
 Removal is done using the REST API `DELETE` request together with the new blueprint as request body.
 If a service exists it will be removed, otherwise the request is ignored. If a cluster has no more services left the cluster will be removed completely. Lastly, if a deployment has no more clusters it will be completely removed (destroyed).
 
-Let's use the example from the previous section. Notice the weight is evenly distributed (50/50). 
+Let's use the example from the previous section. Notice the weight is evenly distributed (50/50).
 
 ```yaml
 ---
@@ -168,7 +168,7 @@ clusters:
     services:
       - breed: monarch_1.0
       - breed: monarch_1.1
-          
+
     gateways:
       monarch_1.0:
         weight: 50%

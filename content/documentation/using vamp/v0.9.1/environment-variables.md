@@ -7,11 +7,11 @@ menu:
     weight: 50
 ---
 
-{{< note title="The information on this page is written for Vamp v0.9.1" >}} 
+{{< warning title="The information on this page is written for Vamp v0.9.1" >}}
 
 * Switch to the [latest version of this page](/documentation/using-vamp/environment-variables).
 * Read the [release notes](/documentation/release-notes/latest) for the latest Vamp release.
-{{< /note >}}
+{{< /warning >}}
 
 Breeds and blueprints can include lists of environment variables that will be injected into the container at runtime. You set environment variables with the `environment_variables` keyword or its shorter version `env`, e.g. both examples below are equivalent.
 
@@ -35,7 +35,7 @@ Breeds can also have dependencies on other breeds. These dependencies should be 
 ---
 dependencies:
   cache: redis:1.1
-``` 
+```
 
 In a lot of cases, dependencies coexist with interpolated environment variables or constants because exact values are not known untill deploy time.
 
@@ -66,7 +66,7 @@ This will match any breed name that starts with `redis:1.`
 
 ## Using place holders
 
-Use the `~` character to define a place holder for a variable that should be filled in at runtime (i.e. when this breed actually gets deployed), but for which you do not yet know the actual value. 
+Use the `~` character to define a place holder for a variable that should be filled in at runtime (i.e. when this breed actually gets deployed), but for which you do not yet know the actual value.
 
 {{< tip title="Typical use case" >}}
 * When different roles in a company work on the same project. Developers can create place holders for variables that operations should fill in: it helps with separating responsibilities.
@@ -80,7 +80,7 @@ name: java_aws_app:1.2.1
 deployable: acmecorp/tomcat:1.2.1
 environment_variables:
   JVM_HEAP_SIZE: 1200
-  AWS_REGION: 'eu-west-1' 
+  AWS_REGION: 'eu-west-1'
   ORACLE_PASSWORD: ~    
 ```
 
@@ -129,7 +129,7 @@ clusters:
       deployable: acmecorp/tomcat:1.2.1      
     environment_variables:
       MYSQL_HOST: $backend.host       
-      MYSQL_PORT: $backend.ports.port 
+      MYSQL_PORT: $backend.ports.port
       BACKEND_ENCODING: $backend.environment_variables.ENCODING_TYPE
     dependencies:
       backend: mysql:1.0
@@ -152,7 +152,7 @@ A scope is an area of your breed or blueprint definition that limits the visibil
 
 3. **Service scope**: Will override breed scope and cluster scope, and is part of the blueprint artifact. Use this to override all environment variables for a specific service within a cluster.
 
-{{< note title="Note!" >}} 
+{{< note title="Note!" >}}
 Effective use of scope is completely dependent on your use case. The various scopes help to separate concerns when multiple people and/or teams work on Vamp artifacts and deployments and need to decouple their effort.
 {{< /note >}}
 
@@ -166,7 +166,7 @@ Effective use of scope is completely dependent on your use case. The various sco
 #### Example 1
 **Run two of the same services with different configurations**
 
-**Use case:** As a devOps-er you want to test one service configured in two different ways at the same time. Your service is configurable using environment variables. In this case we are testing a connection pool setting. 
+**Use case:** As a devOps-er you want to test one service configured in two different ways at the same time. Your service is configurable using environment variables. In this case we are testing a connection pool setting.
 
 
 **Implementation:** In the below blueprint we just use the breed level environment variables. The traffic is split into a 50/50 divide between both services.
@@ -198,9 +198,9 @@ clusters:
 
   gateways:
     frontend_app:1.0-a:
-      weight: 50% 
+      weight: 50%
     frontend_app:1.0-b:
-      weight: 50% 
+      weight: 50%
 ```  
 
 
@@ -209,14 +209,14 @@ clusters:
 
 **Use case:** As a developer, you created your service with a default heap size you use on your development laptop and maybe on a test environment. Once your service goes "live", an ops guy/gal should be able to override this setting.
 
-**Implementation:** In the below blueprint we override the variable `JVM_HEAP_SIZE` for the whole `frontend` cluster by specifically marking it with .dot-notation `cluster.variable` 
+**Implementation:** In the below blueprint we override the variable `JVM_HEAP_SIZE` for the whole `frontend` cluster by specifically marking it with .dot-notation `cluster.variable`
 
 ```yaml
 ---
 name: production_deployment:1.0
 gateways:
   9050: frontend/port
-environment_variables:                  # cluster level variable 
+environment_variables:                  # cluster level variable
   frontend.JVM_HEAP_SIZE: 2800          # overrides the breed level
 clusters:
   frontend:
@@ -234,7 +234,7 @@ clusters:
 #### Example 3
 **Use a place holder**
 
-**Use case:** As a developer, you might not know some value your service needs at runtime, say the Google Anaytics ID your company uses. However, your Node.js frontend needs it! 
+**Use case:** As a developer, you might not know some value your service needs at runtime, say the Google Anaytics ID your company uses. However, your Node.js frontend needs it!
 
 **Implementation:** In the below blueprint the `~` place holder is used to explicitly demand that a variable is set by a higher scope. When this variable is NOT provided, Vamp will report an error at deploy time.
 
@@ -243,7 +243,7 @@ clusters:
 name: production_deployment:1.0
 gateways:
   9050: frontend/port
-environment_variables:                            # cluster level variable 
+environment_variables:                            # cluster level variable
   frontend.GOOGLE_ANALYTICS_KEY: 'UA-53758816-1'  # overrides the breed level
 clusters:
   frontend:
@@ -255,9 +255,9 @@ clusters:
           ports:
             port: 8080/http
           environment_variables:           
-            GOOGLE_ANALYTICS_KEY: ~               # If not provided at higher scope, 
+            GOOGLE_ANALYTICS_KEY: ~               # If not provided at higher scope,
                                                   # Vamp reports error.
-``` 
+```
 
 #### Example 4
 **Combine all scopes and references**
@@ -274,7 +274,7 @@ In the below blueprint:
 name: production_deployment:1.0
 gateways:
   9050: frontend/port
-environment_variables:                            # cluster level variable 
+environment_variables:                            # cluster level variable
   frontend.JVM_HEAP_SIZE: 2400                    # overrides the breed level
 clusters:
   frontend:
@@ -285,13 +285,13 @@ clusters:
           ref: frontend_app:1.0-b        
         environment_variables:           
           JVM_HEAP_SIZE: 1800               # overrides the breed level AND cluster level
-          
+
   gateways:
     frontend_app:1.0-a:
-      weight: 50% 
+      weight: 50%
     frontend_app:1.0-b:
-      weight: 50% 
-``` 
+      weight: 50%
+```
 
 
 
@@ -312,7 +312,7 @@ clusters:
       name: frontend_app:1.0
       environment_variables:
         MYSQL_HOST: $backend.host       
-        MYSQL_PORT: $backend.ports.port 
+        MYSQL_PORT: $backend.ports.port
         BACKEND_ENCODING: $backend.environment_variables.ENCODING_TYPE
         SCHEMA: $backend.constants.SCHEMA_NAME
       dependencies:

@@ -7,25 +7,25 @@ menu:
     weight: 120
 ---
 
-{{< note title="The information on this page is written for Vamp v0.9.1" >}}
+{{< warning title="The information on this page is written for Vamp v0.9.1" >}}
 
 * Switch to the [latest version of this page](/documentation/using-vamp/workfows).
 * Read the [release notes](/documentation/release-notes/latest) for the latest Vamp release.
-{{< /note >}}
+{{< /warning >}}
 
-A "workflow" is an automated change of the running system and its deployments and gateways. 
-Changing the number of running instances based on metrics (e.g. SLA) is an example of a workflow. 
+A "workflow" is an automated change of the running system and its deployments and gateways.
+Changing the number of running instances based on metrics (e.g. SLA) is an example of a workflow.
 A workflow can be seen as a recipe or solution, however it has a more generic meaning not just related to "problematic" situations.
 
 
-Another example is a workflow that will decide automatically if a new version, when doing a canary release, should be accepted or not. 
-For instance, push the route up to 50% of traffic to the new version, compare metrics over some time (e.g. frequency of 5xx errors, response time), change to 100% and remove the old version. 
+Another example is a workflow that will decide automatically if a new version, when doing a canary release, should be accepted or not.
+For instance, push the route up to 50% of traffic to the new version, compare metrics over some time (e.g. frequency of 5xx errors, response time), change to 100% and remove the old version.
 This workflow could define the rate of the transitions (e.g. 5% -> 10% -> 25%, ...) as well.
 
 ## Rationale
 
 Workflows allow closing the feedback loop: deploy, measure, **react**.
-Vamp workflows are based on running separate services (breeds) and in its simplest form scripting can be used - e.g. `application/javascript` breeds. 
+Vamp workflows are based on running separate services (breeds) and in its simplest form scripting can be used - e.g. `application/javascript` breeds.
 Scripting allows experimentation with different features and if the feature is common and generic enough, it could be supported later in Vamp DSL.
 Since workflows are running breeds in similar way as in deployments (blueprints), all other breed features are supported - ports, environment variables etc.
 
@@ -40,7 +40,7 @@ Each workflow has to have:
 
  - `name`
  - `breed` - either reference or inline definition, similar to blueprints
- - `schedule` 
+ - `schedule`
  - `scale` - optional
  - `environment_variables` (or `env`)- overrides breed environment variables
  - `arguments`- Docker arguments, overrides default configuration arguments and breed arguments
@@ -66,14 +66,14 @@ Following schedule types are supported:
 
 - `daemon`
 - `event` with `tags` (set)
-- `time` - `period`, `start` (optional, by default starts now) and `repeat` (optional, by default runs forever) 
+- `time` - `period`, `start` (optional, by default starts now) and `repeat` (optional, by default runs forever)
 
 Examples:
 
 ```yaml
 ---
 schedule: daemon
-  
+
 # time schedule
 
 schedule:
@@ -88,14 +88,14 @@ schedule:
   event: # event with following tags will trigger the workflow
   - deployments:sava
   - cluster:runner
-  
+
 # or shorten notation in case of single event (still array can be used as above)
 
 schedule:
   event: archive:bluprints
 
 ```
-      
+
 Time schedule period is in [ISO8601](http://en.wikipedia.org/wiki/ISO_8601) repeating interval notation.
 
 Example:
@@ -110,21 +110,21 @@ breed   :
     type: application/javascript
     definition: |
       'use strict';
-      
+
       var _ = require('lodash');
       var vamp = require('vamp-node-client');
-      
+
       var api = new vamp.Api();
       var metrics = new vamp.Metrics(api);
-      
+
       var period = 5;  // seconds
       var window = 30; // seconds
-      
+
       var process = function() {
         api.gateways(function (gateways) {
           _.forEach(gateways, function(gateway) {
-            metrics.average({ 
-              ft: gateway.lookup_name 
+            metrics.average({
+              ft: gateway.lookup_name
             }, 'Tt', window, function(total, rate, responseTime) {
               api.event(['gateways:' + gateway.name, 'metrics:rate'], rate);
               api.event(['gateways:' + gateway.name, 'metrics:responseTime'], responseTime);
@@ -132,7 +132,7 @@ breed   :
           });
         });ß
       };
-      
+
       setInterval(process, period * 1000);
 ```
 

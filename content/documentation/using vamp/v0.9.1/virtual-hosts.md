@@ -7,11 +7,11 @@ menu:
     weight: 140
 ---
 
-{{< note title="The information on this page is written for Vamp v0.9.1" >}} 
+{{< warning title="The information on this page is written for Vamp v0.9.1" >}}
 
 * Switch to the [latest version of this page](/documentation/using-vamp/virtual-hosts).
 * Read the [release notes](/documentation/release-notes/latest) for the latest Vamp release.
-{{< /note >}}
+{{< /warning >}}
 
 Vamp can be configured to support virtual host via HAProxy:
 
@@ -23,7 +23,7 @@ vamp.operation.gateway {
 ```
 
 #### Example - Virtual hosts
- 
+
  `PUT ${VAMP_URL}/api/v1/deployments/runner` with body:
 
 

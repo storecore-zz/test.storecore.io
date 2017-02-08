@@ -7,11 +7,11 @@ menu:
     weight: 20
 ---
 
-{{< note title="The information on this page is written for Vamp v0.9.1" >}}
+{{< warning title="The information on this page is written for Vamp v0.9.1" >}}
 
 * Switch to the [latest version of this page](/documentation/using-vamp/breeds).
 * Read the [release notes](/documentation/release-notes/latest) for the latest Vamp release.
-{{< /note >}}
+{{< /warning >}}
 
 Breeds are static descriptions of applications and services available for deployment. Each breed is described by the DSL in YAML notation or JSON, whatever you like. This description includes name, version, available parameters, dependencies etc.
 To a certain degree, you could compare a breed to a Maven artifact or a Ruby Gem description.
@@ -26,7 +26,7 @@ Breeds allow you to set the following properties:
 
 ## Deployable
 
-Deployables are pointers to the actual artifacts that get deployed. Vamp supports Docker containers or can support any other artifacts supported by your container manager. 
+Deployables are pointers to the actual artifacts that get deployed. Vamp supports Docker containers or can support any other artifacts supported by your container manager.
 
 #### Example breed - deploy a Docker container
 
@@ -39,11 +39,11 @@ ports:
   web: 8080/http   
 ```
 
-This breed, with a unique name, describes a deployable and the port it works on. 
+This breed, with a unique name, describes a deployable and the port it works on.
 
 ### Docker deployables
 
-By default, the deployable is a Docker container. 
+By default, the deployable is a Docker container.
 We could also make this explicit by setting type to `docker`. The following statements are equivalent:
 
 ```yaml
@@ -53,7 +53,7 @@ deployable: company/my_frontend_service:0.1
 
 ```yaml
 ---
-deployable: 
+deployable:
   type: container/docker
   definition: company/my_frontend_service:0.1
 ```
@@ -69,8 +69,8 @@ Running "other" artifacts such as zips or jars heavily depends on the underlying
 When Vamp is set up to run with Marathon ([mesosphere.github.io - Marathon](https://mesosphere.github.io/marathon/)), `command` (or `cmd`) deployable types can be used.
 In that case cmd ([Marathon REST API - post v2/apps](https://mesosphere.github.io/marathon/docs/rest-api.html#post-v2-apps)) parameter will have value of deployable.
 
-#### Example breed - run a custom jar after it has been downloaded 
-Combining this definition and the Vamp Marathon dialect  `uris` parameter allows the requested jar to be downloaded from a remote location ([Marathon REST API - uris Array of Strings](https://mesosphere.github.io/marathon/docs/rest-api.html#uris-array-of-strings)). 
+#### Example breed - run a custom jar after it has been downloaded
+Combining this definition and the Vamp Marathon dialect  `uris` parameter allows the requested jar to be downloaded from a remote location ([Marathon REST API - uris Array of Strings](https://mesosphere.github.io/marathon/docs/rest-api.html#uris-array-of-strings)).
 
 
 ```yaml
@@ -81,7 +81,7 @@ clusters:
     services:
       breed:
         name: location
-        deployable: 
+        deployable:
           type: cmd
           definition: java -jar location.jar
       marathon:
@@ -90,7 +90,7 @@ clusters:
 ```
 
 
-### JavaScript deployables 
+### JavaScript deployables
 
 Breeds can have type `application/javascript` and definition should be a JavaScript script:
 

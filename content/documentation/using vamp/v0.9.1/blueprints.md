@@ -7,11 +7,11 @@ menu:
     weight: 30
 ---
 
-{{< note title="The information on this page is written for Vamp v0.9.1" >}}
+{{< warning title="The information on this page is written for Vamp v0.9.1" >}}
 
 * Switch to the [latest version of this page](/documentation/using-vamp/blueprints).
 * Read the [release notes](/documentation/release-notes/latest) for the latest Vamp release.
-{{< /note >}}
+{{< /warning >}}
 
 Blueprints are execution plans - they describe how your services should be hooked up and what their topology should look like at runtime. This means you reference your breeds (or define them inline) and add runtime configuration to them.
 
@@ -34,7 +34,7 @@ gateways:
   8080/http: my_frontend/port
 clusters:
   my_frontend:                            # Custom cluster name.
-  
+
     gateways:                             # Gateway for this cluster services.
       routes:                             # Makes sense only with
         some_cool_breed:                  # multiple services per cluster.
@@ -42,7 +42,7 @@ clusters:
           condition: User-Agent = Chrome
         some_other_breed:                 # Second service.
           weight: 5%
-          
+
     services:                             # List of services
       -
         breed:
@@ -52,9 +52,9 @@ clusters:
           memory: 2048MB                  # Memory per instance (MB/GB units).
           instances: 2                    # Number of instances
       -                                          
-        breed: 
+        breed:
           ref: some_other_breed           # Another service in the same cluster.  
-        scale: large                      # Notice we used a reference to a "scale". 
+        scale: large                      # Notice we used a reference to a "scale".
                                           # More on this later.
 ```
 
@@ -84,7 +84,7 @@ Clusters are configured by defining an array of services. A cluster can be given
 ---
 my_cool_cluster
   services
-   - breed: 
+   - breed:
       ref: my_cool_service_A      # reference to an existing breed
    -
      breed:                       # shortened inline breed
@@ -140,7 +140,7 @@ Vamp will translate this into the proper API call. Inspecting the container afte
 ### Marathon dialect
 
 This is an example with Marathon that pulls an image from private repo, mounts some volumes, sets some labels and gets run with an ad hoc command: all taken care of by Marathon.
-  
+
 We can provide the `marathon:` tag either on the service level, or the cluster level. Any `marathon:` tag set on the service level will override the cluster level as it is more specific. However, in 9 out of 10 cases the cluster level makes the most sense. Later, you can also mix dialects so you can prep your blueprint for multiple environments and run times within one description.
 
 

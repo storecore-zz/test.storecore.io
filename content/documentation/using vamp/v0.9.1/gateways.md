@@ -7,21 +7,21 @@ menu:
     weight: 60
 ---
 
-{{< note title="The information on this page is written for Vamp v0.9.1" >}} 
+{{< warning title="The information on this page is written for Vamp v0.9.1" >}}
 
 * Switch to the [latest version of this page](/documentation/using-vamp/gateways).
 * Read the [release notes](/documentation/release-notes/latest) for the latest Vamp release.
-{{< /note >}}
+{{< /warning >}}
 
 Gateways are dynmic runtime entities in the Vamp eco-system. They represent load balancer rules to deployment, cluster and service instances. There are two types of gateways:
 
 * **Internal gateways** are created automatically for each deployment cluster and updated using the gateway/deployment API
 * **External gateways** are explicitly declared either in a deployment blueprint or using the gateway API
 
-#### Example - automatically created gateway 
+#### Example - automatically created gateway
 
 The below gateway is for deployment `vamp`, cluster `sava` and port `port`.  
-The cluster contains two services `sava:1.0.0` and `sava:1.1.0`, each with two running instances. 
+The cluster contains two services `sava:1.0.0` and `sava:1.1.0`, each with two running instances.
 ```yaml
 ---
 name: vamp/sava/port           # name
@@ -125,7 +125,7 @@ clusters:
           deployable: magneticio/sava:1.0.0
           ports:
             port: 8080/http
-            
+
         scale:
           cpu: 0.2
           memory: 256MB
@@ -149,7 +149,7 @@ clusters:
           deployable: magneticio/sava:1.1.0
           ports:
             port: 8080/http
-            
+
         scale:
           cpu: 0.2
           memory: 256MB

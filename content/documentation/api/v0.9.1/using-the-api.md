@@ -8,11 +8,11 @@ menu:
     weight: 22
 ---
 
-{{< note title="The information on this page is written for Vamp v0.9.1" >}}
+{{< warning title="The information on this page is written for Vamp v0.9.1" >}}
 
 * Switch to the [latest version of this page](/documentation/api/using-the-api).
 * Read the [release notes](/documentation/release-notes/latest) for the latest Vamp release.
-{{< /note >}}
+{{< /warning >}}
 
 {{< note title="New in Vamp 0.9.1" >}}
 We've now added support for Websockets to our HTTP API. More information will follow soon.
