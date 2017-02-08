@@ -656,6 +656,9 @@ button:focus {
   color: #142D3C;
   line-height: 1.7; }
 
+.material-icons.index {
+  font-size: 4.4em;
+}
 .material-icons.index, .material-icons.green {
   color: #71D07C ;
 }
