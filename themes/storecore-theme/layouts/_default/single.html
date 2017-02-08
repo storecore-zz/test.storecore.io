@@ -32,14 +32,12 @@
       {{ end }}
     </ul>
     {{ end }}
-    
-    
+
+
     </div>
     <div class="content">
 
-      <h1 class="content-header">{{ .Title }} {{ if .IsDraft }} (Draft){{ end }}</h1>
-
-      <div id="versions-dropdown" class="dropdown">
+      <div id="versions-dropdown" class="dropdown right">
         <div class="dropdown__core">
           <div class="dropdown__selected">
             Selected version
@@ -53,6 +51,8 @@
 
         </div>
       </div>
+      
+      <h1 class="content-header">{{ .Title }} {{ if .IsDraft }} (Draft){{ end }}</h1>
 
       <div class="markdowned">
         {{ .Content }}

@@ -1996,6 +1996,10 @@ pre + pre {
     .dropdown__item:not(:last-of-type) {
       border-bottom: 1px #f2f2f2 solid; }
 
+.dropdown.right {
+    float: right;
+    margin-top: 55px;
+}
 #mobile-menu {
   position: fixed;
   top: 40px;
