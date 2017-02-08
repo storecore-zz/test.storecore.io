@@ -606,7 +606,7 @@ body {
   font-size: 26px;
   font-weight: 300;
   letter-spacing: 0.05em;
-  color: #142D3C; }
+  color: #56555B; }
   @media all and (min-width: 641px) {
     .h1 {
       font-size: 40px; } }
@@ -621,7 +621,7 @@ body {
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 0.05em;
-  color: #142D3C; }
+  color: #56555B; }
   @media all and (min-width: 1025px) {
     .h2 {
       font-size: 22px; } }
@@ -640,7 +640,7 @@ body {
   text-transform: uppercase;
   font-size: 13px;
   letter-spacing: 0.1em;
-  color: #96ADAA; }
+  color: #57737E; }
 
 .text-header, .markdowned th {
   font-weight: 500;
@@ -772,7 +772,7 @@ body {
     .lander-row--small-padding {
       padding: 40px 0; } }
   .lander-row--blue {
-    background-color: #142D3C; }
+    background-color: #E8E1DB; }
     .lander-row--blue .header, .lander-row--blue .h1, .lander-row--blue .h2, .lander-row--blue .text-header, .lander-row--blue .markdowned th, .markdowned .lander-row--blue th, .lander-row--blue .text, .lander-row--blue .markdowned li, .markdowned .lander-row--blue li, .lander-row--blue .markdowned td, .markdowned .lander-row--blue td, .lander-row--blue .date, .lander-row--blue .fa {
       color: #56555B; }
   .lander-row--white {
@@ -869,7 +869,8 @@ body {
   .side-menu__item:last-of-type .side-menu__item__link {
     border-bottom: none !important; }
   .side-menu__item.active > a p {
-    color: #71D07C; }
+    color: #71D07C;
+    font-weight: 500; }
   .side-menu__item__link {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -880,21 +881,21 @@ body {
     align-items: center;
     text-decoration: none;
     padding-bottom: 10px;
-    border-bottom: 1px solid #96ADAA; }
+    border-bottom: 1px solid #56555B; }
     .side-menu__item__link__icon {
       width: 22px; }
     .side-menu__item__link__text {
-      color: #142D3C;
+      color: #56555B;
       margin-left: 18px;
       font-weight: 300;
       letter-spacing: 0.05em;
       font-size: 15px;
       line-height: 1.7; }
   .side-menu__sub__item.active .side-menu__sub__item__text {
-    font-weight: 700; }
+    font-weight: 600; }
   .side-menu__sub__item__text {
     display: none;
-    color: #142D3C;
+    color: #56555B;
     padding: 7px 0 7px 60px;
     font-weight: 300;
     letter-spacing: 0.05em;
@@ -958,7 +959,7 @@ body {
       padding: 0 40px 40px 80px; } }
   .content .content-header {
     font-size: 32px;
-    font-weight: 100;
+    font-weight: 200;
     color: #71D07C;
     line-height: 1.5;
     letter-spacing: 0.05em;
@@ -976,11 +977,11 @@ body {
 .markdowned h2 {
   font-size: 24px;
   font-weight: 500;
-  color: #142D3C;
+  color: #56555B;
   line-height: 1.5em;
   letter-spacing: 0.05em;
   margin: 32px 0 12.5px 0;
-  padding-top: 100px;
+  padding-top: 80px;
   margin-top: -68px; }
 
 .markdowned h2 + h3 {
@@ -997,7 +998,7 @@ body {
 .markdowned h3 {
   font-size: 13px;
   font-weight: 500;
-  color: #142D3C;
+  color: #56555B;
   line-height: 1.8;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1017,7 +1018,7 @@ body {
 .markdowned h4 {
   font-size: 13px;
   font-weight: 500;
-  color: #142D3C;
+  color: #56555B;
   line-height: 1.8;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1037,7 +1038,7 @@ body {
 .markdowned h5 {
   font-size: 13px;
   font-weight: 500;
-  color: #71D07C;
+  color: #56555B;
   line-height: 1.8;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1055,7 +1056,7 @@ body {
 .markdowned h6 {
   font-size: 15px;
   font-weight: 500;
-  color: #142D3C;
+  color: #56555B;
   line-height: 1.7;
   letter-spacing: 0.025em;
   margin: 25px 0; }
@@ -1063,7 +1064,7 @@ body {
 .markdowned p {
   font-size: 15px;
   font-weight: 300;
-  color: #142D3C;
+  color: #56555B;
   line-height: 1.5;
   letter-spacing: 0.025em;
   margin: 25px 0; }
@@ -1077,7 +1078,7 @@ body {
 .markdowned a {
   font-size: 15px;
   font-weight: 300;
-  color: #6991AA;
+  color: #71D07C;
   line-height: 1.7;
   letter-spacing: 0.025em;
   text-decoration: underline;
@@ -1230,11 +1231,11 @@ body {
   .top-menu.active .logo {
     background-image: url("../img/005-vamp/Logo/logo-shield2.png"); }
   .top-menu.active .top-menu-item {
-    color: #142D3C; }
+    color: #56555B; }
   .top-menu.active .github-logo {
-    color: #142D3C; }
+    color: #56555B; }
   .top-menu.active .search-button {
-    color: #142D3C; }
+    color: #56555B; }
 
 .slicknav_menu {
   display: block;
@@ -1242,7 +1243,7 @@ body {
   top: 0;
   width: 100%;
   z-index: 9999;
-  border-bottom: 1px solid #C3D2DC; }
+  border-bottom: 1px solid #56555B; }
   @media all and (min-width: 1025px) {
     .slicknav_menu {
       display: none; } }
@@ -1307,13 +1308,13 @@ body {
     margin-top: 40px; }
 
 .top-bar {
-  border-top: 1px solid #C3D2DC; }
+  border-top: 1px solid #56555B; }
 
 .footer {
   position: relative;
   z-index: 999; }
   .footer .text, .footer .markdowned li, .markdowned .footer li, .footer .markdowned td, .markdowned .footer td, .footer .date {
-    color: #C3D2DC !important;
+    color: #56555B !important;
     text-align: center; }
   .footer .h2 {
     font-weight: 300;
@@ -1325,7 +1326,7 @@ body {
     text-align: center; }
     .footer a .text, .footer a .markdowned li, .markdowned .footer a li, .footer a .markdowned td, .markdowned .footer a td, .footer a .date {
       font-weight: 100;
-      color: #C3D2DC !important; }
+      color: #56555B !important; }
     .footer a.rss-feed-link {
       text-decoration: underline;
       color: #71D07C; }
@@ -1347,7 +1348,7 @@ body {
   padding: 20px 0;
   border-top: 1px solid rgba(55, 100, 125, 0.3); }
   .footer-bottom .text, .footer-bottom .markdowned li, .markdowned .footer-bottom li, .footer-bottom .markdowned td, .markdowned .footer-bottom td, .footer-bottom .date {
-    color: #C3D2DC !important; }
+    color: #56555B !important; }
   .footer-bottom .vamp-bat {
     height: 40px;
     width: 50px;
@@ -1367,7 +1368,9 @@ body {
     width: 100%;
     margin: 10px 0; }
   .footer-bottom a {
-    color: #f2f2f2; }
+    color: #71D07C;
+    font-weight: 400;
+    text-decoration: none;}
   @media all and (min-width: 769px) {
     .footer-bottom .container {
       display: -webkit-box;
@@ -1425,7 +1428,7 @@ body {
     font-weight: 300; }
   .admonition.note {
     background-color: #F7F8F9;
-    border-color: #FAAC19; }
+    border-color: #71D07C; }
     .admonition.note .admonition-icon-image {
       background-image: url("../img/003-Small-icons/Notes/note.svg"); }
     .admonition.note .admonition-title {
@@ -1673,14 +1676,14 @@ pre + pre {
   height: 40px;
   background: none;
   border: none;
-  background-color: #E7ECF1; }
+  background-color: #71D07C; }
   .expand-code-block-button p {
     margin: 0;
     padding: 0;
     line-height: 1;
     font-weight: 500;
-    font-size: 12px;
-    color: #142D3C; }
+    font-size: 14px;
+    color: #fff; }
 
 .copy-button {
   background: none;
@@ -1694,7 +1697,7 @@ pre + pre {
   letter-spacing: 0.1em;
   cursor: pointer;
   width: 100px;
-  background-color: #E7ECF1;
+  background-color: #9B9B99;
   -webkit-transition: 0.3s ease-in all;
   transition: 0.3s ease-in all; }
   .copy-button p {
@@ -1703,7 +1706,7 @@ pre + pre {
     line-height: 1;
     font-weight: 500;
     font-size: 12px;
-    color: #142D3C; }
+    color: #fff; }
     .copy-button p .fa-check {
       -webkit-transform: translate(0, -1px);
       transform: translate(0, -1px); }
@@ -1712,11 +1715,11 @@ pre + pre {
   .copy-button.zeroclipboard-is-hover {
     -webkit-transition: 0.1s ease-in all;
     transition: 0.1s ease-in all;
-    background-color: #C3D2DC;
+    background-color: #9B9B99;
     cursor: pointer;
     color: white; }
   .copy-button.clicked {
-    background-color: #142D3C;
+    background-color: #9B9B99;
     color: white;
     width: 200px; }
     .copy-button.clicked .copy {
@@ -2039,7 +2042,7 @@ pre + pre {
   justify-content: space-between;
   padding: 0 10px;
   height: 40px;
-  border-bottom: 1px solid #C3D2DC; }
+  border-bottom: 1px solid #56555B; }
   @media all and (min-width: 1025px) {
     #mobile-header {
       display: none; } }
@@ -2113,7 +2116,7 @@ pre + pre {
         font-size: 13px;
         line-height: 1.2; }
       .search-bar .inline-search-results li.selected {
-        background-color: #C3D2DC; }
+        background-color: #56555B; }
       .search-bar .inline-search-results li:hover {
         background-color: #dde8f4 !important;
         border-left: 4px #71D07C solid; }
