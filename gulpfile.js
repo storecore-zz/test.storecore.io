@@ -12,6 +12,7 @@ var concat = require('gulp-concat')
 var env = require('./env.json');
 var inject = require('gulp-inject-string');
 var fs = require('fs');
+var cleanCSS = require('gulp-clean-css');
 
 gulp.task('sass:dev', function() {
     var sassStream = gulp.src('./themes/storecore-theme/static/scss/style.scss')
@@ -42,13 +43,20 @@ developmentBase +='\ntheBaseUrl = "http://" + location.host + "/";';
 developmentBase +='\ndocument.write(\'<base href="\' + theBaseUrl + \'"/>\');';
 developmentBase +='\n</script>';
 
-
 var prodUrl = env.prod.baseUrl;
 
 var productionBase = '\n<script type="text/javascript">';
 productionBase +='\ntheBaseUrl = "'+ prodUrl + '";';
 productionBase +='\n</script>';
 
+gulp.task('minify-css', function() {
+    return gulp.src('public/css/*.css')
+        .pipe(cleanCSS({debug: true}, function(details) {
+            console.log('original size: ' + details.name + ': ' + details.stats.originalSize + ' bytes');
+            console.log('minified size: ' + details.name + ': ' + details.stats.minifiedSize + ' bytes');
+        }))
+        .pipe(gulp.dest('./public'));
+});
 
 gulp.task('set-base:development', [], function() {
     fs.writeFileSync('./themes/storecore-theme/layouts/partials/base-url.html', developmentBase);
@@ -61,5 +69,5 @@ gulp.task('set-base:production', [], function() {
 gulp.task('build-search-index',['sass:dev'], shell.task(['node ./buildSearchIndex.js']));
 gulp.task('hugo', ['sass:dev', 'build-search-index'], shell.task(['hugo']));
 
-gulp.task('build:prod', ['hugo', 'set-base:production', 'js']);
+gulp.task('build:prod', ['hugo', 'set-base:production', 'js', 'minify-css']);
 gulp.task('build:dev', ['hugo', 'set-base:development', 'js']);
