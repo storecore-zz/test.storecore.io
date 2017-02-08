@@ -66,8 +66,8 @@ gulp.task('set-base:production', [], function() {
     fs.writeFileSync('./themes/storecore-theme/layouts/partials/base-url.html', '\n'+productionBase+'\n<base href="'+ prodUrl + '" />');
 });
 
-gulp.task('build-search-index',['sass:dev'], shell.task(['node ./buildSearchIndex.js']));
-gulp.task('hugo', ['sass:dev', 'build-search-index'], shell.task(['hugo']));
+gulp.task('build-search-index', shell.task(['node ./buildSearchIndex.js']));
+gulp.task('hugo', ['build-search-index'], shell.task(['hugo -v --forceSyncStatic --cleanDestinationDir']));
 
 gulp.task('build:prod', ['hugo', 'set-base:production', 'js', 'minify-css']);
 gulp.task('build:dev', ['hugo', 'set-base:development', 'js']);
