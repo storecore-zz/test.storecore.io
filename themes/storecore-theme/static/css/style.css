@@ -601,6 +601,10 @@ button:focus {
     .header {
       font-size: 52px; } }
 
+.header .span {
+  font-weight: 400;
+}
+
 .h1 {
   font-size: 26px;
   font-weight: 300;
@@ -659,6 +663,13 @@ button:focus {
   font-size: 4.4em;
 }
 .material-icons.index, .material-icons.green {
+  color: #71D07C ;
+}
+
+.material-icons.index2 {
+  font-size: 4.4em;
+}
+.material-icons.index2, .material-icons.green {
   color: #71D07C ;
 }
 
