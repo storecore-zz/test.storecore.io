@@ -8,7 +8,7 @@ To get started, you will need to choose a plan for your needs. You can opt in fo
 
 | Free  | Premium|
 |-------|--------|
-|*€0*/mo|*€89*/mo|
+|**€0**/mo|**€89**/mo|
 |DIY download|Free installation|
 |No backups|Daily backup|
 |No hosting|Fast hosting|
@@ -16,7 +16,7 @@ To get started, you will need to choose a plan for your needs. You can opt in fo
 |E-mail support|Full support|
 |Latest version|Latest version|
 |Pay for migration|Free migration|
-|*[Free download](#)|*[Get Started](#)
+|* [Free download](#)|* [Get Started](#)
 
 Additional transaction fees, subscriptions or other charges may apply to third-party software and services.
 
