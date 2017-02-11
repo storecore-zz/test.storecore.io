@@ -595,7 +595,6 @@ button:focus {
 
 .header {
   font-weight: 100;
-  text-transform: uppercase;
   color: #56555B;
   font-size: 26px; }
   @media all and (min-width: 641px) {
