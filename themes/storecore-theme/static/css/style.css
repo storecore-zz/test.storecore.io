@@ -602,9 +602,7 @@ button:focus {
       font-size: 52px; } }
 
 .header .span {
-  font-weight: 900 !important;
-   white-space: nowrap;
-}
+  font-weight: 900 !important; }
 
 .h1 {
   font-size: 26px;
