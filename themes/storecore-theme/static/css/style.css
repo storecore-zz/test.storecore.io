@@ -602,7 +602,8 @@ button:focus {
       font-size: 52px; } }
 
 .header .span {
-  font-weight: 400;
+  font-weight: 900;
+   white-space: nowrap;
 }
 
 .h1 {
@@ -670,7 +671,7 @@ button:focus {
   font-size: 4.4em;
 }
 .material-icons.index2, .material-icons.green {
-  color: #71D07C ;
+  color: #39AC47 ;
 }
 
 .material-icons.md-18 { font-size: 18px; }
