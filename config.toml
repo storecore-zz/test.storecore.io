@@ -46,16 +46,16 @@ googleAnalytics = ""
   subtitle = "Pellen"
 
 [params.palette]
-	primary = "pink"
-	accent  = "pink"
+	primary = "green"
+	accent  = "green"
 
 [params.font]
 	text = "Roboto"
 	code = "Roboto Mono"
 
 [social]
-	twitter = "magneticio"
-	github  = "magneticio/vamp"
+	twitter = "storecorehq"
+	github  = "storecore"
 
 [blackfriday]
 	smartypants	= true
@@ -84,6 +84,11 @@ googleAnalytics = ""
 	name   = "Blog"
 	url    = "/blog/"
 	weight = 40
+
+	[[menu.main]]
+		name   = "Pricing"
+		url    = "/pricing/"
+		weight = 40
 
 [[menu.main]]
 	name   = "Support"

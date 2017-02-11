@@ -602,7 +602,7 @@ button:focus {
       font-size: 52px; } }
 
 .header .span {
-  font-weight: 900;
+  font-weight: 900 !important;
    white-space: nowrap;
 }
 
