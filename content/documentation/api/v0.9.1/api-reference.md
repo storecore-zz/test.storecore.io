@@ -6,6 +6,7 @@ menu:
     parent: "API"
     identifier: "api-reference-0.9.1"
     weight: 12
+layout: "documentation"    
 ---
 
 {{< warning title="The information on this page is written for Vamp v0.9.1" >}}
