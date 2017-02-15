@@ -1,7 +1,7 @@
 baseurl = "."
 languageCode = "en-US"
 title = "StoreCore"
-theme = "storecore-theme"
+theme = "storecore"
 metadataformat = "yaml"
 canonifyurls = true
 pluralizeListTitles = false
@@ -45,14 +45,6 @@ googleAnalytics = ""
   title = "From our blog"
   subtitle = "Pellen"
 
-[params.palette]
-	primary = "green"
-	accent  = "green"
-
-[params.font]
-	text = "Roboto"
-	code = "Roboto Mono"
-
 [social]
 	twitter = "storecorehq"
 	github  = "storecore"
@@ -63,92 +55,18 @@ googleAnalytics = ""
 	smartDashes = true
 	plainIDAnchors = true
 
-# Top Menu Items
 [[menu.main]]
-	name   = "Why use StoreCore?"
-	url    = "/why-use-vamp/why-use-vamp/"
-	identifier = "why-use-vamp-top"
-	weight = 10
-
-[[menu.main]]
-	name   = "Documentation"
-	url    = "/documentation/how-vamp-works/architecture-and-components/"
-	weight = 20
-
-[[menu.main]]
-	name   = "Resources"
-	url    = "/resources/downloads/"
-	weight = 30
-
-[[menu.main]]
-	name   = "Blog"
-	url    = "/blog/"
-	weight = 40
-
-	[[menu.main]]
-		name   = "Pricing"
-		url    = "/pricing/"
-		weight = 40
-
-[[menu.main]]
-	name   = "Support"
-	url    = "/support/"
-	weight = 50
+    name = "About"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = 10
+    identifier = "blog"
+    url = "/blog/"
 
 # Side Menu Items, Parent should match the identifier of the Top Menu Item
 [[menu.main]]
-	name = "Use cases"
-	url = "/why-use-vamp/use-cases/use-cases"
-	parent = "why-use-vamp-top"
-	weight = 10
-
-[[menu.main]]
-	name  = "Vamp compared to..."
-	url   = "/why-use-vamp/vamp-compared-to/proxies-and-load-balancers/"
-	parent = "why-use-vamp-top"
-	weight = 30
-
-[[menu.main]]
-	name	= "How Vamp works"
-	url = "/documentation/how-vamp-works/architecture-and-components/"
-	parent = "Documentation"
-	weight = 10
-
-[[menu.main]]
-	name = "Using Vamp"
-	url = "documentation/using-vamp/artifacts/"
-	parent = "Documentation"
-	weight = 20
-
-[[menu.main]]
-	name = "Tutorials"
-	url = "/documentation/tutorials/overview"
-	parent = "Documentation"
-	weight = 30
-
-[[menu.main]]
-	name = "Install"
-	identifier = "Installation"
-	url = "/documentation/installation/overview"
-	parent = "Documentation"
-	weight = 40
-
-[[menu.main]]
-	name = "API documentation"
-	identifier = "API"
-	url = "/documentation/api/api-reference"
-	parent = "Documentation"
-	weight = 60
-
-[[menu.main]]
-	name = "CLI documentation"
-	identifier = "CLI"
-	url = "/documentation/cli/cli-reference/"
-	parent = "Documentation"
-	weight = 70
-
-[[menu.main]]
-	name = "Release notes"
-	url = "/documentation/release-notes/"
-	parent = "Documentation"
-	weight = 80
+    name = "about hugo"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = -110
+    identifier = "about"
+    url = "/about/"
+		parent = "blog"

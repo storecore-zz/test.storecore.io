@@ -1,0 +1,11 @@
+{{ partial "head" . }}
+{{ partial "nav" . }}
+
+<div class="container">
+    <h1 class="content-header">{{ .Title }} {{ if .IsDraft }} (Draft){{ end }}</h1>
+    <div class="markdowned">
+      {{ .Content }}
+    </div>
+  </div>
+
+{{ partial "footer" .}}

@@ -1,0 +1,15 @@
+{{ partial "head" . }}
+{{ partial "nav" . }}
+
+<div class="container">
+    <h1 class="content-header">{{ .Title }} {{ if .IsDraft }} (Draft){{ end }}</h1>
+    <div class="reading-time"><div class="middot"></div>{{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute read{{ else }}{{ .ReadingTime }} minutes read{{ end }}</div>
+    <div class="date" title="{{ .Date.Format .Site.Params.dateformfull }}">{{ .Date.Format .Site.Params.dateform }}</div>
+    <div class="markdowned">
+      {{ .Content }}
+    </div>
+    <br>
+    <p><a href="{{ .Section }}">Back to blogs</a></p>
+</div>
+
+{{ partial "footer" .}}

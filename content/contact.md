@@ -1,26 +1,20 @@
 ---
 date: 2016-09-13T09:00:00+00:00
-title: contact
+title: contact us
 ---
+Vamp is being developed by Magnetic.io from the heart of beautiful [Amsterdam](http://www.iamsterdam.com/en/).  
 
-Vamp is being developed by [Magnetic.io](about/) in the heart of Amsterdam.
+We’re dedicated to helping organisations and companies of all sizes increase efficiency, save time and reduce costs.
+We provide powerful and easy-to-use solutions to optimise modern architectures and systems, often based around microservices and/or containers.
 
-**Our Amsterdam offices:**
-
-Sint Antoniesbreestraat 16  
-1011 HB Amsterdam  
-The Netherlands  
-+31(0)88 555 33 99  
-[info@magnetic.io](mailto:info@magnetic.io)
-
-## Professional services and consultancy
-We can provide professional services and consultancy around the implementation and use of Vamp. Send us an email on [info@magnetic.io](mailto:info@magnetic.io) or call +31(0)88 555 33 99.
-
-## Vamp Enterprise Edition (EE)
-We also provide a commercial [Enterprise Edition](why-use-vamp/enterprise-edition/) of Vamp with features specifically tuned to enterprise usage. Contact us to get more information.
-
-##  Support
-Check our [support](/support/) page for SLA's and other forms of support.
+## Vision
+Time is precious. We believe people should focus their efforts on the things they excel at and that matter to them. Let computers do the repeatable and automatable tasks - they’re far more suited to that than we are. Smart automation FTW!
 
 ## Community
-Join the [Vamp community](/resources/community/) to make Vamp even better.
+We encourage anyone to [join the Vamp community](/resources/community/) and pitch in with pull requests, bug reports and feature requests to make Vamp even more awesome.
+
+## Working at Vamp
+We're alway on the lookout for smart, talented and motivated people that love to work on products and understand real-world problems and how to solve them in the best possible way. If you would love to join our team and work on Vamp and related products, please get in [touch](/contact/)!
+
+## Contact
+You can contact us [here](/contact/)
