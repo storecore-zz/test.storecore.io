@@ -56,17 +56,22 @@ googleAnalytics = ""
 	plainIDAnchors = true
 
 [[menu.main]]
-    name = "About"
-    pre = "<i class='fa fa-heart'></i>"
-    weight = 10
-    identifier = "blog"
-    url = "/blog/"
+	name   = "Documentation"
+	url    = "/documentation/getting-started/intro"
+	weight = 10
+
 
 # Side Menu Items, Parent should match the identifier of the Top Menu Item
 [[menu.main]]
-    name = "about hugo"
-    pre = "<i class='fa fa-heart'></i>"
-    weight = -110
-    identifier = "about"
-    url = "/about/"
-		parent = "blog"
+	name = "Getting Started"
+	identifier = "Started"
+	url = "/documentation/getting-started/intro"
+	parent = "Documentation"
+	weight = 40
+
+	[[menu.main]]
+	name = "API documentation"
+	identifier = "API"
+	url = "/documentation/api/api-reference"
+	parent = "Documentation"
+	weight = 60

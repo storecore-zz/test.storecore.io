@@ -156,7 +156,7 @@ function documentReady() {
 
 
 
-// Set side menu 
+// Set side menu
 function setSideMenu() {
   var firstPartUrl = thePath.split('/')[1];
   $('.side-menu-list').each(function () {
@@ -190,7 +190,7 @@ function setSideMenu() {
 
       if (elementUrlInfo.pageName === urlInfo.pageName) {
         // $('#versions-dropdown .dropdown__items').append('<option value="' + $(this).attr('href') + '"'+isCurrent+'>' + elementUrlInfo.version + '</option>')
-        $('#versions-dropdown .dropdown__items').append('<div data-url="' +$(this).attr('href')+ '" class="dropdown__item '+ isCurrent +'"><i class="fa fa-check" aria-hidden="true"></i>' + elementUrlInfo.version + '</div>');
+        $('#versions-dropdown .dropdown__items').append('<div data-url="' +$(this).attr('href')+ '" class="dropdown__item '+ isCurrent +'"><i class="material-icons">done</i>' + elementUrlInfo.version + '</div>');
         $('#versions-dropdown .dropdown__selected').html(urlInfo.version);
       }
     });
@@ -439,9 +439,3 @@ function buildSearch() {
     return whole;
   }
 }
-
-
-
-
-
-

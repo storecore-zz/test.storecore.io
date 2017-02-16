@@ -1,8 +1,5 @@
 {{ partial "head" . }}
-
-<div class="single-page">
-  {{ partial "nav" . }}
-</div>
+{{ partial "nav" . }}
 
 <div class="page documentation">
     <div class="side-menu" id="side-menu">
@@ -13,7 +10,7 @@
       {{ range .Children }}
       <li class="side-menu__item{{if $currentNode.HasMenuCurrent "main" . }} active{{end}}{{if $currentNode.IsMenuCurrent "main" . }} active{{end}}">
         <a href="{{.URL}}" class="side-menu__item__link">
-          <img class="side-menu__item__link__icon" src="/img/003-Small-icons/block-03.svg" alt="">
+          <i class="material-icons">add</i>
           <p class="side-menu__item__link__text">{{ .Name }}</p>
         </a>
 
@@ -43,7 +40,7 @@
             Selected version
           </div>
           <div class="dropdown__chevon">
-            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            <i class="material-icons">keyboard_arrow_down</i>
           </div>
         </div>
 

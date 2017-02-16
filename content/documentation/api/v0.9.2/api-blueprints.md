@@ -5,8 +5,7 @@ menu:
   main:
     parent: "API"
     identifier: "api-reference-blueprints-092"
-    weight: 40
-layout: "documentation"    
+    weight: 40  
 aliases:
     - /documentation/api/api-blueprints
 ---
