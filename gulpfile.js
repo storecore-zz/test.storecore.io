@@ -15,26 +15,26 @@ var fs = require('fs');
 var cleanCSS = require('gulp-clean-css');
 
 gulp.task('sass:dev', function() {
-    var sassStream = gulp.src('./themes/storecore-theme/static/scss/style.scss')
+    var sassStream = gulp.src('./themes/storecore/static/scss/style.scss')
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(autoprefixer({cascade: false}));
 
-    var cssStream = gulp.src('./themes/storecore-theme/static/css/vendor/*.css')
+    var cssStream = gulp.src('./themes/storecore/static/css/vendor/*.css')
         .pipe(concat('css-files.css'));
 
     var mergedStream = merge(sassStream, cssStream)
         .pipe(concat('style.css'))
-        .pipe(gulp.dest('./themes/storecore-theme/static/css'));
+        .pipe(gulp.dest('./themes/storecore/static/css'));
     return mergedStream;
 });
 
 
-var jsLibsBase = './themes/storecore-theme/static/js/libs/';
+var jsLibsBase = './themes/storecore/static/js/libs/';
 
 gulp.task('js', function() {
     gulp.src([jsLibsBase + 'jquery-3.1.0.min.js', jsLibsBase + 'lunrjs.min.js', jsLibsBase + 'highlight.pack.js', jsLibsBase + 'debounce.min.js', jsLibsBase + 'clipboard.min.js'])
         .pipe(concat('vendor.js'))
-        .pipe(gulp.dest('./themes/storecore-theme/static/js/'));
+        .pipe(gulp.dest('./themes/storecore/static/js/'));
 });
 
 
@@ -59,11 +59,11 @@ gulp.task('minify-css', function() {
 });
 
 gulp.task('set-base:development', [], function() {
-    fs.writeFileSync('./themes/storecore-theme/layouts/partials/base-url.html', developmentBase);
+    fs.writeFileSync('./themes/storecore/layouts/partials/base-url.html', developmentBase);
 });
 
 gulp.task('set-base:production', [], function() {
-    fs.writeFileSync('./themes/storecore-theme/layouts/partials/base-url.html', '\n'+productionBase+'\n<base href="'+ prodUrl + '" />');
+    fs.writeFileSync('./themes/storecore/layouts/partials/base-url.html', '\n'+productionBase+'\n<base href="'+ prodUrl + '" />');
 });
 
 gulp.task('build-search-index', shell.task(['node ./buildSearchIndex.js']));
