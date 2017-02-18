@@ -69,7 +69,7 @@ googleAnalytics = ""
 	parent = "Documentation"
 	weight = 40
 
-	[[menu.main]]
+[[menu.main]]
 	name = "API documentation"
 	identifier = "API"
 	url = "/documentation/api/api-reference"

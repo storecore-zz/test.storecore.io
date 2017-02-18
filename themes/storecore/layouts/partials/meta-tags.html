@@ -1,0 +1,3 @@
+{{ if .Params.tags }}
+{{ range $index, $tag := .Params.tags }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" rel="tag">{{ . }}</a>{{ end }}
+{{ end }}
