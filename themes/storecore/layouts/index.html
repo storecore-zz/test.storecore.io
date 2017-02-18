@@ -1,84 +1,49 @@
 {{ partial "head" . }} <!-- themes/storecore/partials/head.html -->
 {{ partial "nav" . }} <!-- themes/storecore/partials/nav.html -->
+<section id="slider" class="slider-parallax swiper_wrapper clearfix">
 
-<div class="container">
-  <div class="row text-center">
-      <h1>StoreCore<br> Multi-Store Made Easy</a></h1>
-      <button type="button" class="btn btn-lg btn-primary">Purchase Now</a>
-</div>
-  </div>
-  <!-- Service Block-1 Section -->
-<section id="service-block-main" class="section">
-  <!-- Container Starts -->
-  <div class="container">
-    <div class="row">
-      <h1 class="section-title wow fadeIn animated" data-wow-delay=".2s">
-       WHY CHOOSE US?
-      </h1>
-      <p class="section-subcontent">At vero eos et accusamus et iusto odio dignissimos ducimus qui <br> blanditiis praesentium</p>
-      <div class="col-sm-6 col-md-3">
-        <!-- Service-Block-1 Item Starts -->
-        <div class="service-item wow fadeInUpQuick animated" data-wow-delay=".5s">
-          <div class="icon-wrapper">
-            <i class="material-icons">phone_android</i>
+  <div class="slider-parallax-inner">
+
+    <div class="swiper-container swiper-parent">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide dark" style="background-image: url('images/slider/swiper/1.jpg');">
+          <div class="container clearfix">
+            <div class="slider-caption slider-caption-center">
+              <h2 data-caption-animate="fadeInUp">Welcome to Canvas</h2>
+              <p data-caption-animate="fadeInUp" data-caption-delay="200">Create just what you need for your Perfect Website. Choose from a wide range of Elements &amp; simply put them on our Canvas.</p>
+            </div>
           </div>
-          <h2>
-            First mobile
-          </h2>
-          <p>
-            Why not start with mobile? Everyone is using their phones today for almost everything. Now you can use your phone for your business.
-          </p>
         </div>
-        <!-- Service-Block-1 Item Ends -->
+        <div class="swiper-slide dark">
+          <div class="container clearfix">
+            <div class="slider-caption slider-caption-center">
+              <h2 data-caption-animate="fadeInUp">Beautifully Flexible</h2>
+              <p data-caption-animate="fadeInUp" data-caption-delay="200">Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Powerful Layout with Responsive functionality that can be adapted to any screen size.</p>
+            </div>
+          </div>
+          <div class="video-wrap">
+            <video poster="images/videos/explore.jpg" preload="auto" loop autoplay muted>
+              <source src='images/videos/explore.mp4' type='video/mp4' />
+              <source src='images/videos/explore.webm' type='video/webm' />
+            </video>
+            <div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('images/slider/swiper/3.jpg'); background-position: center top;">
+          <div class="container clearfix">
+            <div class="slider-caption">
+              <h2 data-caption-animate="fadeInUp">Great Performance</h2>
+              <p data-caption-animate="fadeInUp" data-caption-delay="200">You'll be surprised to see the Final Results of your Creation &amp; would crave for more.</p>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="col-sm-6 col-md-3">
-        <!-- Service-Block-1 Item Starts -->
-        <div class="service-item wow fadeInUpQuick animated" data-wow-delay=".8s">
-          <div class="icon-wrapper">
-            <i class="material-icons">whatshot</i>
-          </div>
-          <h2>
-            High Performance
-          </h2>
-          <p>
-            We are doing everything to set our goals high. Performance is just one of goals to make your e-commerce site the fastest one.
-          </p>
-        </div>
-        <!-- Service-Block-1 Item Ends -->
-      </div>
-
-      <div class="col-sm-6 col-md-3">
-        <!-- Service-Block-1 Item Starts -->
-        <div class="service-item wow fadeInUpQuick animated" data-wow-delay="1.1s">
-          <div class="icon-wrapper">
-            <i class="material-icons">fingerprint</i>
-          </div>
-          <h2>
-            Security
-          </h2>
-          <p>
-            StoreCore is build with security in mind. Not only will you get a free SSL certificate. We also provide the best dedicated hosting services.
-          </p>
-        </div>
-        <!-- Service-Block-1 Item Ends -->
-      </div>
-
-      <div class="col-sm-6 col-md-3">
-        <!-- Service-Block-1 Item Starts -->
-        <div class="service-item  wow fadeInUpQuick animated" data-wow-delay="1.4s">
-          <div class="icon-wrapper">
-            <i class="material-icons">local_grocery_store</i>
-          </div>
-          <h2>
-            Dedicated Commerce Platform
-          </h2>
-          <p>
-            It is not a blog, community, wiki or knowledgebase. It’s JUST a dedicated e-commerce platform. Built by, for and with e-commerce professionals.
-          </p>
-        </div>
-      </div><!-- Service-Block-1 Item Ends -->
+      <div id="slider-arrow-left"><i class="icon-angle-left"></i></div>
+      <div id="slider-arrow-right"><i class="icon-angle-right"></i></div>
+      <div id="slide-number"><div id="slide-number-current"></div><span>/</span><div id="slide-number-total"></div></div>
     </div>
-  </div><!-- Container Ends -->
-</section><!-- Service Main Section Ends -->
+
+  </div>
+
+</section>
 {{ partial "footer" .}} <!-- themes/storecore/partials/footer.html -->

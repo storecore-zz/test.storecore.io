@@ -39,10 +39,9 @@
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-  
+
   {{ with .RSSLink }}
   <link href="index.xml" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
   <link href="index.xml" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
   {{ end }}
 </head>
-<body class="stretched">
