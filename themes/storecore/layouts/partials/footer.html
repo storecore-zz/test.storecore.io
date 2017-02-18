@@ -228,15 +228,22 @@
 
 </div><!-- #wrapper end -->
 
-<!-- Go To Top
-============================================= -->
-<div id="gotoTop" class="material-icons">arrow_drop_up</i></div>
+		<!-- Go To Top
+		============================================= -->
+		<div id="gotoTop" class="material-icons">arrow_drop_up</i></div>
 
-<!-- External JavaScripts
-============================================= -->
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/plugins.js"></script>
+		<!-- External JavaScripts
+		============================================= -->
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/plugins.js"></script>
 
-<!-- Footer Scripts
-============================================= -->
-<script type="text/javascript" src="js/functions.js"></script>
+		<!-- Footer Scripts
+		============================================= -->
+		<script type="text/javascript" src="js/functions.js"></script>
+    <script>
+        jQuery(document).ready(function(e) {
+            e("#primary-menu > ul li").find('.new-badge').children("div").append('<span class="label label-danger" style="display:inline-block;margin-left:8px;position:relative;top:-1px;text-transform:none;">New</span>')
+        });
+    </script>
+  </body>
+</html>
