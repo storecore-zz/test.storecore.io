@@ -25,7 +25,7 @@
     </ul>
     <div class="entry-content">
       <p>{{ .Summary }}</p>
-      <a href="{{ .Permalink }}" class="more-link">{{ i18n "readMore" }}</a>
+      <a href="{{ .Permalink }}" data-disqus-url="{{ .relURL }}" class="more-link">{{ i18n "readMore" }}</a>
     </div>
   </div>
 
