@@ -29,7 +29,7 @@
     "gulp-useref": "^3.1.2"
   },
   "scripts": {
-    "build-index": "hugo-lunr -o themes/storecore-theme/static/lunr.json"
+    "build-index": "hugo-lunr -o themes/storecore/static/lunr.json"
   },
   "repository": {
     "type": "git",

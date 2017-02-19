@@ -8,7 +8,7 @@ const removeMd = require('remove-markdown');
 //Get content map
 const tree = dirTree('./content');
 
-const base = './themes/storecore-theme/static/';
+const base = './themes/storecore/static/';
 
 //Prototypes
 String.prototype.contains = function(it) { return this.indexOf(it) != -1; };

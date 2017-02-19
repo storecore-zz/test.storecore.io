@@ -3,7 +3,7 @@ public
 node_modules
 
 # exception to the rule
-!themes/storecore-theme/.gitkeep
+!themes/storecore/.gitkeep
 
 # Compiled source #
 ###################
