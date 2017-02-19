@@ -1,4 +1,5 @@
 ---
-date: 2016-09-13T09:00:00.000Z
+date: 2017-02-19T21:00:00.000Z
 title: Pricing
+layout: pricing
 ---
