@@ -5,7 +5,8 @@ theme = "storecore"
 metadataformat = "yaml"
 canonifyurls = true
 pluralizeListTitles = false
-disqusShortname = storecore
+disqusShortname = "storecore"
+
 # Enable Google Analytics by entering your tracking id
 googleAnalytics = ""
 
