@@ -1,4 +1,4 @@
-baseurl = "."
+baseurl = "test.storecore.io"
 languageCode = "en-US"
 title = "StoreCore"
 theme = "storecore"
