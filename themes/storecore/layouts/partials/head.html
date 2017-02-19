@@ -20,7 +20,7 @@
   <meta name="author" content="{{ . }}">
   {{ end }}
 
-  <meta property="og:url" content="{{ .Permalink }}"> 
+  <meta property="og:url" content="{{ .Permalink }}">
   {{ with .Site.Title }}<meta property="og:title" content="{{ . }}">{{ end }}
   {{ with .Site.Params.logo }}<meta property="og:image" content="{{ $.Site.BaseURL }}{{ . }}">{{ end }}
   {{ with .Site.Title }}<meta name="apple-mobile-web-app-title" content="{{ . }}">{{ end }}
@@ -48,3 +48,5 @@
   <link href="index.xml" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
   {{ end }}
 </head>
+<body class="stretched no-transition device-lg">
+  <div id="wrapper" class="clearfix">
