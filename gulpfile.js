@@ -67,7 +67,7 @@ gulp.task('set-base:production', [], function() {
 });
 
 gulp.task('build-search-index', shell.task(['node ./buildSearchIndex.js']));
-gulp.task('hugo', ['build-search-index'], shell.task(['hugo -v --forceSyncStatic --cleanDestinationDir']));
+gulp.task('hugo', ['build-search-index'], shell.task(['hugo -v']));
 
-gulp.task('build:prod', ['hugo', 'set-base:production', 'js', 'minify-css']);
+gulp.task('build:prod', ['set-base:production', 'js', 'minify-css', 'hugo']);
 gulp.task('build:dev', ['hugo', 'set-base:development', 'js']);
