@@ -21,7 +21,7 @@
 				<i class="icon-folder-open"></i> <a href="#">{{ if or (.Params.categories) (.Params.tags) }} {{ partial "meta-cats.html" . }}{{ end }}</a>
 			</li>
 			<li>
-				<a href="{{ .Permalink }}#comments"><i class="icon-comments"></i> 13 Comments</a>
+				<a href="{{ .URL }}#disqus_thread" class="disqus-comment-count" data-disqus-identifier="{{ .UniqueID }}"><i class="icon-comments"></i> Comments</a>
 			</li>
 			<li>
 				<a href="#"><i class="icon-camera-retro"></i></a>

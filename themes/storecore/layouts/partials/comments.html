@@ -2,14 +2,12 @@
 <script type="text/javascript">
 
 (function() {
-    // Don't ever inject Disqus on localhost--it creates unwanted
-    // discussions from 'localhost:1313' on your Disqus account...
     if (window.location.hostname == "localhost")
         return;
 
     var disqus_config = function () {
-        this.page.url = '{{ .URL | relURL }}';
-        this.page.identifier = '{{ .RelPermalink }}';
+        this.page.url = '{{ .URL }}';
+        this.page.identifier = '{{ .UniqueID }}';
         this.page.title = '{{ .Title }}';
     };
 
@@ -19,5 +17,4 @@
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
 </script>
-<script id="dsq-count-scr" src="//storecore.disqus.com/count.js" async></script>
 <noscript>Please enable JavaScript to view the comments.</noscript>

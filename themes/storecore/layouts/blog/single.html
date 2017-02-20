@@ -30,7 +30,7 @@
 									<i class="icon-folder-open"></i> <a href="#">{{ if (.Params.categories) }} {{ partial "meta-cats.html" . }}{{ end }}</a>
 								</li>
 								<li>
-									<a href="{{ .URL}}#comments"><i class="icon-comments"></i> <span class="disqus-comment-count" data-disqus-url="{{ .URL | relURL }}"></span></a>
+									<a href="{{ .URL }}#disqus_thread" class="disqus-comment-count" data-disqus-identifier="{{ .UniqueID }}"><i class="icon-comments"></i> Comments</a>
 								</li>
 								<li>
 									<a href="#"><i class="icon-camera-retro"></i></a> {{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute read{{ else }}{{ .ReadingTime }} minutes read{{ end }}
@@ -147,7 +147,7 @@
 								</div>
 							</div>
 						</div><!-- Comments  ============================================= -->
-						<div class="clearfix" id="comments" name="comments" style="display:block; padding-top:50px;">
+						<div class="clearfix" id="disqus_thread" style="display:block; padding-top:50px;">
 							<!-- Comments List  ============================================= -->
 							{{ partial "comments" . }}
 						</div><!-- #comments end -->
@@ -157,4 +157,3 @@
 		</div>
 	</section>
 	{{ partial "footer" .}}
-<script id="dsq-count-scr" src="//storecore.disqus.com/count.js" async></script>
