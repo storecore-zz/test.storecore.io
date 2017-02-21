@@ -1,15 +1,30 @@
-{{ define "header" }}
-  {{ partial "menu" . }}
-{{ end }}
-{{ define "main" }}
-  <header>
-    <h1>{{ .Title }}</h1>
-  </header>
-  <ul>
-    {{ range $key, $value := .Data.Terms }}
-      <li><a href="{{ $key | urlize }}">{{ $key }}</a> ({{ len $value }})
-    {{ end }}
-  </ul>
-{{ end }}
-{{ define "footer" }}
-{{ end }}
+{{ partial "head" . }}
+{{ partial "nav" . }}
+<section id="page-title">
+	<div class="container clearfix">
+		<h1>{{ .Title }}</h1>
+		<ol class="breadcrumb">
+			<li><a href="/">Home</a></li>
+			<li class="active">{{ .Title }}</li>
+		</ol>
+	</div>
+</section>
+<section id="content">
+	<div class="content-wrap">
+		<div class="container clearfix">
+			<div class="single-post nobottommargin">
+        <ul>
+        {{ $base := .Site.BaseURL }}
+        {{ $data := .Data}}
+
+        {{ range $name, $pages := .Data.Terms }}
+          {{ $page := index $pages 0 }}
+          {{ $pageCount := len $pages }}
+          <li><a href="{{$base}}/{{$data.Plural}}/{{$name}}"> {{ $name }} </a> &nbsp;({{ $pageCount }} {{ if eq $pageCount 1 }}entry{{ else }}entries{{ end }})</li>
+        {{ end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{{ partial "footer" .}}
