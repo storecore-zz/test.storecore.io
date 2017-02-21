@@ -39,11 +39,8 @@ params:
 
   dateform: "Jan 2, 2006"
   dateformfull: "Mon Jan 2 2006 15:04:05 MST"
-
-params.recent_posts:
-  enable: true
-  title: "From our blog"
-  subtitle: "Pellen"
+  
+  comments: true
 
 social:
   twitter: "storecorehq"

@@ -13,6 +13,7 @@ categories:
   - golang
 type: blog
 thumbnail: images/blog/small/17.jpg
+comments: false
 ---
 
 # Introduction

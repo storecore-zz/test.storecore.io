@@ -1,6 +1,6 @@
 ---
 author: Tristan van Bokkem
-title: This is the forth blog item
+title: This is the fourth blog item
 description: null
 tags:
   - go

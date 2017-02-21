@@ -70,9 +70,11 @@
 							<!-- Post Related  ============================================= -->
 							{{ partial "post/related" . }}
 							<!-- Post Single - Related End -->
+							{{ if (.Params.comments | default .Site.Params.comments) }}
 							<!-- Comments  ============================================= -->
-							{{ partial "post/comments" . }}
-						<!-- #comments end -->
+								{{ partial "post/comments" . }}
+								<!-- #comments end -->
+							{{ end }}
 				</div>
 				<!-- .postcontent end -->
 			</div>
