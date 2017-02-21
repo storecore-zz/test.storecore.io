@@ -48,10 +48,14 @@
 						<!-- Post Navigation ============================================= -->
 						<div class="post-navigation clearfix">
 							<div class="col_half nobottommargin">
-								<a href="#">⇐ This is a Standard post with a Slider Gallery</a>
+								{{ if .PrevInSection }}
+								<a href="{{.PrevInSection.Permalink}}">⇐ {{ .PrevInSection.Title }}</a>
+								{{ end }}
 							</div>
 							<div class="col_half col_last tright nobottommargin">
-								<a href="#">This is an Embedded Audio Post ⇒</a>
+								{{ if .NextInSection }}
+								<a href="{{.NextInSection.Permalink}}">{{ .NextInSection.Title }} ⇒</a>
+								{{ end }}
 							</div>
 						</div>
 						<!-- .post-navigation end -->
