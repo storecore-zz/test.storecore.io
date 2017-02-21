@@ -1,11 +1,21 @@
 ---
-author: "Michael Henderson"
-date: 2014-01-28
+author: Michael Henderson
+date: 2014-01-28T00:00:00.000Z
 title: This is the first blog item
+tags:
+  - go
+  - golang
+  - templates
+  - themes
+  - development
+categories:
+  - Development
+  - golang
+type: blog
+thumbnail: images/blog/small/17.jpg
 ---
 
-
-## Introduction
+# Introduction
 
 This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I'll explain how Hugo uses templates and how you can organize your templates to create a theme. I won't cover using CSS to style your theme.
 
@@ -41,74 +51,73 @@ bah and humbug
 $
 ```
 
-
-## Some Definitions
+# Some Definitions
 
 There are a few concepts that you need to understand before creating a theme.
 
-### Skins
+## Skins
 
-Skins are the files responsible for the look and feel of your site. It’s the CSS that controls colors and fonts, it’s the Javascript that determines actions and reactions. It’s also the rules that Hugo uses to transform your content into the HTML that the site will serve to visitors.
+Skins are the files responsible for the look and feel of your site. It's the CSS that controls colors and fonts, it's the Javascript that determines actions and reactions. It's also the rules that Hugo uses to transform your content into the HTML that the site will serve to visitors.
 
-You have two ways to create a skin. The simplest way is to create it in the ```layouts/``` directory. If you do, then you don’t have to worry about configuring Hugo to recognize it. The first place that Hugo will look for rules and files is in the ```layouts/``` directory so it will always find the skin.
+You have two ways to create a skin. The simplest way is to create it in the `layouts/` directory. If you do, then you don't have to worry about configuring Hugo to recognize it. The first place that Hugo will look for rules and files is in the `layouts/` directory so it will always find the skin.
 
-Your second choice is to create it in a sub-directory of the ```themes/``` directory. If you do, then you must always tell Hugo where to search for the skin. It’s extra work, though, so why bother with it?
+Your second choice is to create it in a sub-directory of the `themes/` directory. If you do, then you must always tell Hugo where to search for the skin. It's extra work, though, so why bother with it?
 
-The difference between creating a skin in ```layouts/``` and creating it in ```themes/``` is very subtle. A skin in ```layouts/``` can’t be customized without updating the templates and static files that it is built from. A skin created in ```themes/```, on the other hand, can be and that makes it easier for other people to use it.
+The difference between creating a skin in `layouts/` and creating it in `themes/` is very subtle. A skin in `layouts/` can't be customized without updating the templates and static files that it is built from. A skin created in `themes/`, on the other hand, can be and that makes it easier for other people to use it.
 
-The rest of this tutorial will call a skin created in the ```themes/``` directory a theme.
+The rest of this tutorial will call a skin created in the `themes/` directory a theme.
 
-Note that you can use this tutorial to create a skin in the ```layouts/``` directory if you wish to. The main difference will be that you won’t need to update the site’s configuration file to use a theme.
+Note that you can use this tutorial to create a skin in the `layouts/` directory if you wish to. The main difference will be that you won't need to update the site's configuration file to use a theme.
 
-### The Home Page
+## The Home Page
 
 The home page, or landing page, is the first page that many visitors to a site see. It is the index.html file in the root directory of the web site. Since Hugo writes files to the public/ directory, our home page is public/index.html.
 
-### Site Configuration File
+## Site Configuration File
 
-When Hugo runs, it looks for a configuration file that contains settings that override default values for the entire site. The file can use TOML, YAML, or JSON. I prefer to use TOML for my configuration files. If you prefer to use JSON or YAML, you’ll need to translate my examples. You’ll also need to change the name of the file since Hugo uses the extension to determine how to process it.
+When Hugo runs, it looks for a configuration file that contains settings that override default values for the entire site. The file can use TOML, YAML, or JSON. I prefer to use TOML for my configuration files. If you prefer to use JSON or YAML, you'll need to translate my examples. You'll also need to change the name of the file since Hugo uses the extension to determine how to process it.
 
-Hugo translates Markdown files into HTML. By default, Hugo expects to find Markdown files in your ```content/``` directory and template files in your ```themes/``` directory. It will create HTML files in your ```public/``` directory. You can change this by specifying alternate locations in the configuration file.
+Hugo translates Markdown files into HTML. By default, Hugo expects to find Markdown files in your `content/` directory and template files in your `themes/` directory. It will create HTML files in your `public/` directory. You can change this by specifying alternate locations in the configuration file.
 
-### Content
+## Content
 
-Content is stored in text files that contain two sections. The first section is the “front matter,” which is the meta-information on the content. The second section contains Markdown that will be converted to HTML.
+Content is stored in text files that contain two sections. The first section is the "front matter," which is the meta-information on the content. The second section contains Markdown that will be converted to HTML.
 
-#### Front Matter
+### Front Matter
 
-The front matter is information about the content. Like the configuration file, it can be written in TOML, YAML, or JSON. Unlike the configuration file, Hugo doesn’t use the file’s extension to know the format. It looks for markers to signal the type. TOML is surrounded by “`+++`”, YAML by “`---`”, and JSON is enclosed in curly braces. I prefer to use TOML, so you’ll need to translate my examples if you prefer YAML or JSON.
+The front matter is information about the content. Like the configuration file, it can be written in TOML, YAML, or JSON. Unlike the configuration file, Hugo doesn't use the file's extension to know the format. It looks for markers to signal the type. TOML is surrounded by "`+++`", YAML by "`---`", and JSON is enclosed in curly braces. I prefer to use TOML, so you'll need to translate my examples if you prefer YAML or JSON.
 
 The information in the front matter is passed into the template before the content is rendered into HTML.
 
-#### Markdown
+### Markdown
 
 Content is written in Markdown which makes it easier to create the content. Hugo runs the content through a Markdown engine to create the HTML which will be written to the output file.
 
-### Template Files
+## Template Files
 
 Hugo uses template files to render content into HTML. Template files are a bridge between the content and presentation. Rules in the template define what content is published, where it's published to, and how it will rendered to the HTML file. The template guides the presentation by specifying the style to use.
 
 There are three types of templates: single, list, and partial. Each type takes a bit of content as input and transforms it based on the commands in the template.
 
-Hugo uses its knowledge of the content to find the template file used to render the content. If it can’t find a template that is an exact match for the content, it will shift up a level and search from there. It will continue to do so until it finds a matching template or runs out of templates to try. If it can’t find a template, it will use the default template for the site.
+Hugo uses its knowledge of the content to find the template file used to render the content. If it can't find a template that is an exact match for the content, it will shift up a level and search from there. It will continue to do so until it finds a matching template or runs out of templates to try. If it can't find a template, it will use the default template for the site.
 
-Please note that you can use the front matter to influence Hugo’s choice of templates.
+Please note that you can use the front matter to influence Hugo's choice of templates.
 
-#### Single Template
+### Single Template
 
 A single template is used to render a single piece of content. For example, an article or post would be a single piece of content and use a single template.
 
-#### List Template
+### List Template
 
 A list template renders a group of related content. That could be a summary of recent postings or all articles in a category. List templates can contain multiple groups.
 
 The homepage template is a special type of list template. Hugo assumes that the home page of your site will act as the portal for the rest of the content in the site.
 
-#### Partial Template
+### Partial Template
 
-A partial template is a template that can be included in other templates. Partial templates must be called using the “partial” template command. They are very handy for rolling up common behavior. For example, your site may have a banner that all pages use. Instead of copying the text of the banner into every single and list template, you could create a partial with the banner in it. That way if you decide to change the banner, you only have to change the partial template.
+A partial template is a template that can be included in other templates. Partial templates must be called using the "partial" template command. They are very handy for rolling up common behavior. For example, your site may have a banner that all pages use. Instead of copying the text of the banner into every single and list template, you could create a partial with the banner in it. That way if you decide to change the banner, you only have to change the partial template.
 
-## Create a New Site
+# Create a New Site
 
 Let's use Hugo to create a new web site. I'm a Mac user, so I'll create mine in my home directory, in the Sites folder. If you're using Linux, you might have to create the folder first.
 
@@ -133,7 +142,7 @@ Take a look in the content/ directory to confirm that it is empty.
 
 The other directories (archetypes/, layouts/, and static/) are used when customizing a theme. That's a topic for a different tutorial, so please ignore them for now.
 
-### Generate the HTML For the New Site
+## Generate the HTML For the New Site
 
 Running the `hugo` command with no options will read all the available content and generate the HTML files. It will also copy all static files (that's everything that's not content). Since we have an empty site, it won't do much, but it will do it very quickly.
 
@@ -180,9 +189,7 @@ $
 
 Hugo created two XML files, which is standard, but there are no HTML files.
 
-
-
-### Test the New Site
+## Test the New Site
 
 Verify that you can run the built-in web server. It will dramatically shorten your development cycle if you do. Start it by running the "server" command. If it is successful, you will see output similar to the following:
 
@@ -212,22 +219,22 @@ sitemap.xml
 
 That's a listing of your public/ directory. Hugo didn't create a home page because our site has no content. When there's no index.html file in a directory, the server lists the files in the directory, which is what you should see in your browser.
 
-Let’s go back and look at those warnings again.
+Let's go back and look at those warnings again.
 
 ```
 WARN: 2014/09/29 Unable to locate layout: [index.html _default/list.html _default/single.html]
 WARN: 2014/09/29 Unable to locate layout: [404.html]
 ```
 
-That second warning is easier to explain. We haven’t created a template to be used to generate “page not found errors.” The 404 message is a topic for a separate tutorial.
+That second warning is easier to explain. We haven't created a template to be used to generate "page not found errors." The 404 message is a topic for a separate tutorial.
 
-Now for the first warning. It is for the home page. You can tell because the first layout that it looked for was “index.html.” That’s only used by the home page.
+Now for the first warning. It is for the home page. You can tell because the first layout that it looked for was "index.html." That's only used by the home page.
 
 I like that the verbose flag causes Hugo to list the files that it's searching for. For the home page, they are index.html, _default/list.html, and _default/single.html. There are some rules that we'll cover later that explain the names and paths. For now, just remember that Hugo couldn't find a template for the home page and it told you so.
 
-At this point, you've got a working installation and site that we can build upon. All that’s left is to add some content and a theme to display it.
+At this point, you've got a working installation and site that we can build upon. All that's left is to add some content and a theme to display it.
 
-## Create a New Theme
+# Create a New Theme
 
 Hugo doesn't ship with a default theme. There are a few available (I counted a dozen when I first installed Hugo) and Hugo comes with a command to create new themes.
 
@@ -235,8 +242,7 @@ We're going to create a new theme called "zafta." Since the goal of this tutoria
 
 All themes have opinions on content and layout. For example, Zafta uses "post" over "blog". Strong opinions make for simpler templates but differing opinions make it tougher to use themes. When you build a theme, consider using the terms that other themes do.
 
-
-### Create a Skeleton
+## Create a Skeleton
 
 Use the hugo "new" command to create the skeleton of a theme. This creates the directory structure and places empty files for you to fill out.
 
@@ -295,9 +301,7 @@ $ find themes/zafta -name '*.html' | xargs ls -l
 $
 ```
 
-
-
-### Update the Configuration File to Use the Theme
+## Update the Configuration File to Use the Theme
 
 Now that we've got a theme to work with, it's a good idea to add the theme name to the configuration file. This is optional, because you can always add "-t zafta" on all your commands. I like to put it the configuration file because I like shorter command lines. If you don't put it in the configuration file or specify it on the command line, you won't use the template that you're expecting to.
 
@@ -315,7 +319,7 @@ MetaDataFormat = "toml"
 $
 ```
 
-### Generate the Site
+## Generate the Site
 
 Now that we have an empty theme, let's generate the site again.
 
@@ -356,7 +360,7 @@ Notice four things:
 3. Hugo created a js/ directory.
 4. Hugo claimed that it created 0 pages. It created a file and copied over static files, but didn't create any pages. That's because it considers a "page" to be a file created directly from a content file. It doesn't count things like the index.html files that it creates automatically.
 
-#### The Home Page
+### The Home Page
 
 Hugo supports many different types of templates. The home page is special because it gets its own type of template and its own template file. The file, layouts/index.html, is used to generate the HTML for the home page. The Hugo documentation says that this is the only required template, but that depends. Hugo's warning message shows that it looks for three different templates:
 
@@ -375,7 +379,7 @@ $ find . -name index.html | xargs ls -l
 $
 ```
 
-#### The Magic of Static
+### The Magic of Static
 
 Hugo does two things when generating the site. It uses templates to transform content into HTML and it copies static files into the site. Unlike content, static files are not transformed. They are copied exactly as they are.
 
@@ -394,7 +398,7 @@ drwxr-xr-x  2 quoha  staff   68 Sep 29 17:31 themes/zafta/static/js
 $
 ```
 
-## The Theme Development Cycle
+# The Theme Development Cycle
 
 When you're working on a theme, you will make changes in the theme's directory, rebuild the site, and check your changes in the browser. Hugo makes this very easy:
 
@@ -405,25 +409,25 @@ When you're working on a theme, you will make changes in the theme's directory, 
 5. Glance at your browser window to see changes.
 6. Return to step 4.
 
-I’ll throw in one more opinion: never work on a theme on a live site. Always work on a copy of your site. Make changes to your theme, test them, then copy them up to your site. For added safety, use a tool like Git to keep a revision history of your content and your theme. Believe me when I say that it is too easy to lose both your mind and your changes.
+I'll throw in one more opinion: never work on a theme on a live site. Always work on a copy of your site. Make changes to your theme, test them, then copy them up to your site. For added safety, use a tool like Git to keep a revision history of your content and your theme. Believe me when I say that it is too easy to lose both your mind and your changes.
 
 Check the main Hugo site for information on using Git with Hugo.
 
-### Purge the public/ Directory
+## Purge the public/ Directory
 
-When generating the site, Hugo will create new files and update existing ones in the ```public/``` directory. It will not delete files that are no longer used. For example, files that were created in the wrong directory or with the wrong title will remain. If you leave them, you might get confused by them later. I recommend cleaning out your site prior to generating it.
+When generating the site, Hugo will create new files and update existing ones in the `public/` directory. It will not delete files that are no longer used. For example, files that were created in the wrong directory or with the wrong title will remain. If you leave them, you might get confused by them later. I recommend cleaning out your site prior to generating it.
 
 Note: If you're building on an SSD, you should ignore this. Churning on a SSD can be costly.
 
-### Hugo's Watch Option
+## Hugo's Watch Option
 
 Hugo's "`--watch`" option will monitor the content/ and your theme directories for changes and rebuild the site automatically.
 
-### Live Reload
+## Live Reload
 
 Hugo's built in web server supports live reload. As pages are saved on the server, the browser is told to refresh the page. Usually, this happens faster than you can say, "Wow, that's totally amazing."
 
-### Development Commands
+## Development Commands
 
 Use the following commands as the basis for your workflow.
 
@@ -438,7 +442,6 @@ $ hugo server --watch --verbose
 ```
 
 Here's sample output showing Hugo detecting a change to the template for the home page. Once generated, the web browser automatically reloaded the page. I've said this before, it's amazing.
-
 
 ```
 $ rm -rf public
@@ -469,7 +472,7 @@ WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 in 1 ms
 ```
 
-## Update the Home Page Template
+# Update the Home Page Template
 
 The home page is one of a few special pages that Hugo creates automatically. As mentioned earlier, it looks for one of three files in the theme's layout/ directory:
 
@@ -479,7 +482,7 @@ The home page is one of a few special pages that Hugo creates automatically. As 
 
 We could update one of the default templates, but a good design decision is to update the most specific template available. That's not a hard and fast rule (in fact, we'll break it a few times in this tutorial), but it is a good generalization.
 
-### Make a Static Home Page
+## Make a Static Home Page
 
 Right now, that page is empty because we don't have any content and we don't have any logic in the template. Let's change that by adding some text to the template.
 
@@ -522,7 +525,7 @@ $ cat public/index.html
 </html>
 ```
 
-#### Live Reload
+### Live Reload
 
 Note: If you're running the server with the `--watch` option, you'll see different content in the file:
 
@@ -541,11 +544,11 @@ $ cat public/index.html
 
 When you use `--watch`, the Live Reload script is added by Hugo. Look for live reload in the documentation to see what it does and how to disable it.
 
-### Build a "Dynamic" Home Page
+## Build a "Dynamic" Home Page
 
 "Dynamic home page?" Hugo's a static web site generator, so this seems an odd thing to say. I mean let's have the home page automatically reflect the content in the site every time Hugo builds it. We'll use iteration in the template to do that.
 
-#### Create New Posts
+### Create New Posts
 
 Now that we have the home page generating static content, let's add some content to the site. We'll display these posts as a list on the home page and on their own page, too.
 
@@ -654,7 +657,7 @@ $
 
 The new files are empty because because the templates used to generate the content are empty. The homepage doesn't show the new content, either. We have to update the templates to add the posts.
 
-### List and Single Templates
+## List and Single Templates
 
 In Hugo, we have three major kinds of templates. There's the home page template that we updated previously. It is used only by the home page. We also have "single" templates which are used to generate output for a single content file. We also have "list" templates that are used to group multiple pieces of content before generating output.
 
@@ -662,7 +665,7 @@ Generally speaking, list templates are named "list.html" and single templates ar
 
 There are three other types of templates: partials, content views, and terms. We will not go into much detail on these.
 
-### Add Content to the Homepage
+## Add Content to the Homepage
 
 The home page will contain a list of posts. Let's update its template to add the posts that we just created. The logic in the template will run every time we build the site.
 
@@ -734,7 +737,7 @@ Congratulations, the home page shows the title of the two posts. The posts thems
 
 And, if that were entirely true, this tutorial would be much shorter. There are a few things to know that will make creating a new template much easier. Don't worry, though, that's all to come.
 
-### Add Content to the Posts
+## Add Content to the Posts
 
 We're working with posts, which are in the content/post/ directory. That means that their section is "post" (and if we don't do something weird, their type is also "post").
 
@@ -753,7 +756,7 @@ Remember, any content that we haven't created a template for will end up using t
 
 Please see the Hugo documentation on template rendering for all the details on determining which template to use. And, as the docs mention, if you're building a single page application (SPA) web site, you can delete all of the other templates and work with just the default single page. That's a refreshing amount of joy right there.
 
-#### Update the Template File
+### Update the Template File
 
 ```
 $ vi themes/zafta/layouts/_default/single.html
@@ -825,7 +828,7 @@ $
 
 Notice that the posts now have content. You can go to localhost:1313/post/first to verify.
 
-### Linking to Content
+## Linking to Content
 
 The posts are on the home page. Let's add a link from there to the post. Since this is the home page, we'll update its template.
 
@@ -879,7 +882,7 @@ $ cat public/index.html
 $
 ```
 
-### Create a Post Listing
+## Create a Post Listing
 
 We have the posts displaying on the home page and on their own page. We also have a file public/post/index.html that is empty. Let's make it show a list of all posts (not just the first ten).
 
@@ -892,7 +895,7 @@ $ find themes/zafta -name list.html | xargs ls -l
 
 As with the single post, we have to decide to update _default/list.html or create post/list.html. We still don't have multiple content types, so let's stay consistent and update the default list template.
 
-## Creating Top Level Pages
+# Creating Top Level Pages
 
 Let's add an "about" page and display it at the top level (as opposed to a sub-level like we did with posts).
 
@@ -939,7 +942,7 @@ $ cat public/index.html
     <h1><a href="http://localhost:1313/post/first-post/">first</a></h1>
 <script>document.write('<script src="http://'
         + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
+        + ':1313/livereload.js?mindelay=10"></'
         + 'script>')</script></body>
 </html>
 ```
@@ -987,19 +990,19 @@ Knowing that hugo is using the slug to generate the file name, the simplest solu
 ```
 $ vi config.toml
 [permalinks]
-	page = "/:title/"
-	about = "/:filename/"
+    page = "/:title/"
+    about = "/:filename/"
 ```
 
 Generate the web site and verify that this didn't work. Hugo lets "slug" or "URL" override the permalinks setting in the configuration file. Go ahead and comment out the slug in content/about.md, then generate the web site to get it to be created in the right place.
 
-## Sharing Templates
+# Sharing Templates
 
 If you've been following along, you probably noticed that posts have titles in the browser and the home page doesn't. That's because we didn't put the title in the home page's template (layouts/index.html). That's an easy thing to do, but let's look at a different option.
 
 We can put the common bits into a shared template that's stored in the themes/zafta/layouts/partials/ directory.
 
-### Create the Header and Footer Partials
+## Create the Header and Footer Partials
 
 In Hugo, a partial is a sugar-coated template. Normally a template reference has a path specified. Partials are different. Hugo searches for them along a TODO defined search path. This makes it easier for end-users to override the theme's presentation.
 
@@ -1008,7 +1011,7 @@ $ vi themes/zafta/layouts/partials/header.html
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{ .Title }}</title>
+    <title>{{ .Title }}</title>
 </head>
 <body>
 :wq
@@ -1019,17 +1022,20 @@ $ vi themes/zafta/layouts/partials/footer.html
 :wq
 ```
 
-### Update the Home Page Template to Use the Partials
+## Update the Home Page Template to Use the Partials
 
 The most noticeable difference between a template call and a partials call is the lack of path:
 
 ```
 {{ template "theme/partials/header.html" . }}
 ```
+
 versus
+
 ```
 {{ partial "header.html" . }}
 ```
+
 Both pass in the context.
 
 Let's change the home page template to use these new partials.
@@ -1058,7 +1064,7 @@ $ vi themes/zafta/layouts/index.html
 
 Generate the web site and verify the results. The title on the home page is now "your title here", which comes from the "title" variable in the config.toml file.
 
-### Update the Default Single Template to Use the Partials
+## Update the Default Single Template to Use the Partials
 
 ```
 $ vi themes/zafta/layouts/_default/single.html
@@ -1073,11 +1079,11 @@ $ vi themes/zafta/layouts/_default/single.html
 
 Generate the web site and verify the results. The title on the posts and the about page should both reflect the value in the markdown file.
 
-## Add “Date Published” to Posts
+# Add "Date Published" to Posts
 
 It's common to have posts display the date that they were written or published, so let's add that. The front matter of our posts has a variable named "date." It's usually the date the content was created, but let's pretend that's the value we want to display.
 
-### Add “Date Published” to the Template
+## Add "Date Published" to the Template
 
 We'll start by updating the template used to render the posts. The template code will look like:
 
@@ -1133,11 +1139,10 @@ $ vi themes/zafta/layouts/post/single.html
 
 {{ partial "footer.html" . }}
 :wq
-
 ```
 
 Note that we removed the date logic from the default template and put it in the post template. Generate the web site and verify the results. Posts have dates and the about page doesn't.
 
-### Don't Repeat Yourself
+## Don't Repeat Yourself
 
 DRY is a good design goal and Hugo does a great job supporting it. Part of the art of a good template is knowing when to add a new template and when to update an existing one. While you're figuring that out, accept that you'll be doing some refactoring. Hugo makes that easy and fast, so it's okay to delay splitting up a template.
