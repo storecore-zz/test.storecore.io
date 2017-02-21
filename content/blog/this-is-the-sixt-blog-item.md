@@ -6,7 +6,6 @@ tags:
   - go
   - golang
   - templates
-  - themes
   - development
 date: 2017-01-19T00:00:00.000Z
 categories:
