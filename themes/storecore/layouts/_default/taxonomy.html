@@ -1,13 +1,26 @@
-{{ define "header" }}
-  {{ partial "nav" . }}
-{{ end }}
-{{ define "main" }}
-  <header>
-    <h1>{{ .Title }}</h1>
-  </header>
-  {{ range .Paginator.Pages }}
-    {{ .Summary }}
-  {{ end }}
-{{ end }}
-{{ define "footer" }}
-{{ end }}
+{{ partial "head" . }}
+{{ partial "nav" . }}
+<section id="page-title">
+	<div class="container clearfix">
+		<h1>{{ .Title }}</h1>
+		<ol class="breadcrumb">
+			<li><a href="/">Home</a></li>
+      <li><a href="/{{ .Data.Plural }}">{{ humanize .Data.Plural  }}</a></li>
+			<li class="active">{{ .Title }}</li>
+		</ol>
+	</div>
+</section>
+<section id="content">
+	<div class="content-wrap">
+		<div class="container clearfix">
+			<div class="single-post nobottommargin">
+        <ul>
+        {{ range .Data.Pages }}
+          <li><a href="{{.Permalink}}">{{ .LinkTitle }}</a></li>
+        {{end}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{{ partial "footer" .}}
