@@ -3,11 +3,7 @@ author: Tristan van Bokkem
 title: This is the third blog item
 description: null
 tags:
-  - go
-  - golang
-  - templates
   - themes
-  - development
 date: 2017-02-21T00:00:00.000Z
 categories:
   - Development
