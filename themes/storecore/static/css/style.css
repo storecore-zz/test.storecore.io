@@ -13609,3 +13609,17 @@ body:not(.no-transition) #wrapper,
 	margin:0!important;
 	padding:0!important
 }
+
+#versions-dropdown {
+	display: none;
+}
+.dropdown__item.selected i {
+    display: inline;
+}
+.dropdown__item i {
+    display: none;
+		margin-right: 10px;
+}
+.dropdown__item.selected {
+    font-weight: 900 !important;
+}
