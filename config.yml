@@ -39,7 +39,7 @@ params:
 
   dateform: "Jan 2, 2006"
   dateformfull: "Mon Jan 2 2006 15:04:05 MST"
-  
+
   comments: true
 
 social:
@@ -52,22 +52,35 @@ blackfriday:
   smartDashes: true
   plainIDAnchors: true
 
-menu.main:
-  name: "Documentation"
-  url: "/documentation/getting-started/intro"
-  weight: 10
-
-# Side Menu Items, Parent should match the identifier of the Top Menu Item
-menu.main:
-  name: "Getting Started"
-  identifier: "Started"
-  url: "/documentation/getting-started/intro"
-  parent: "Documentation"
-  weight: 40
-
-menu.main:
-  name: "API documentation"
-  identifier: "API"
-  url: "/documentation/api/api-reference"
-  parent: "Documentation"
-  weight: 60
+# Top Menu Items
+menu:
+  main:
+      - Name: "Home"
+        URL: "/"
+        Weight: 10
+      - Name: "Pricing"
+        URL: "/pricing/"
+        Weight: 30
+      - Name: "Release Schedule"
+        URL: "/releases/"
+        Weight: 40
+      - Name: "Resources"
+        URL: "/documentation/getting-started/intro"
+        Weight: 50
+      - Name: "Blog"
+        URL: "/blog/"
+        Weight: 60
+      - Name: "Contact"
+        URL: "/contact/"
+        Weight: 70
+# Sub Menu Items
+      - Name: "Getting Started"
+        Identifier: "Started"
+        URL: "/documentation/getting-started/intro"
+        parent: "Resources"
+        Weight: 10
+      - Name: "API Documentation"
+        Identifier: "API"
+        URL: "/documentation/api/api-reference"
+        parent: "Resources"
+        Weight: 20
