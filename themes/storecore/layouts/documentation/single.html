@@ -22,11 +22,11 @@
 			<div class="postcontent col_last nobottommargin clearfix">
         <div id="faqs" class="faqs">
           <div id="faqs-list" class="fancy-title title-bottom-border">
-						<div class="btn-group">
-				      <button id="versions-dropdown" class="btn btn-default btn-lg dropdown-toggle dropdown" data-toggle="dropdown">
-								<span class="dropdown__selected">Selected version</span> <span class="caret"></span>
+						<div class="btn-group documentation navbar-right">
+				      <button id="versions-dropdown" class="btn btn-default btn-lg dropdown-toggle dropdown pull-right" data-toggle="dropdown">
+								<span class="dropdown-selected">Selected version</span> <span class="caret"></span>
 							</button>
-			        <ul class="dropdown-menu" role=menu></ul>
+			        <ul class="dropdown-menu dropdown-menu-right" role=menu></ul>
 			      </div>
             <h1 class="content-header">{{ .Title }} {{ if .IsDraft }} (Draft){{ end }}</h1>
             <div class="markdowned">
@@ -38,29 +38,30 @@
 			<!-- Sidebar ============================================= -->
 			<div class="sidebar nobottommargin clearfix">
 				<div class="sidebar-widgets-wrap">
-
-					<div class="widget widget_links clearfix">
+					<div class="side-menu clearfix">
           {{ $currentNode := . }}
           {{ range .Site.Menus.main }}
-						<ul class="side-menu-list" data-parenturl="{{ .URL }}">
-              {{ range .Children }}
-                <li class="{{ if $currentNode.HasMenuCurrent "main" . }} active{{ end }}{{ if $currentNode.IsMenuCurrent "main" . }} active{{ end }}">
-                  <a href="{{ .URL }}" class="side-menu__item">
-                    <p class="">{{ .Name }}</p>
-                  </a>
-                </li>
-                {{ if .HasChildren }}
-                  {{ if $currentNode.HasMenuCurrent "main" . }}
-                    <ul class="side-menu__sub">
-                      {{ range .Children }}
-                      <li class="{{ if $currentNode.IsMenuCurrent "main" . }} active{{ end }}">
-                        <a id="menu-link-{{ .URL }}" class="side-menu__sub__item__text" href="{{ .URL }}" data-url="{{ .URL }}">{{ .Name }}</a>
-                      </li>
-                      {{ end }}
-                    </ul>
-                  {{ end }}
-                {{ end }}
-              {{ end }}
+						{{ if .HasChildren }}
+							<ul class="side-menu-list" data-parenturl="{{ .URL }}" style="display: none;">
+	              {{ range .Children }}
+	                <li class="side-menu-item{{ if $currentNode.HasMenuCurrent "main" . }} active{{ end }}{{ if $currentNode.IsMenuCurrent "main" . }} active{{ end }}">
+	                  <a href="{{ .URL }}" class="side-menu-item-link">
+	                    <i class="material-icons" aria-hidden="true">book</i><p class="side-menu-item-link-text">{{ upper .Name }}</p>
+	                  </a>
+	                </li>
+	                {{ if .HasChildren }}
+	                  {{ if $currentNode.HasMenuCurrent "main" . }}
+	                    <ul class="side-menu-sub">
+	                      {{ range .Children }}
+	                      <li class="side-menu-sub-item{{ if $currentNode.IsMenuCurrent "main" . }} active{{ end }}">
+	                        <a id="menu-link-{{ .URL }}" class="side-menu-sub-item-text" href="{{ .URL }}" data-url="{{ .URL }}">{{ upper .Name }}</a>
+	                      </li>
+	                      {{ end }}
+	                    </ul>
+	                  {{ end }}
+	                {{ end }}
+	              {{ end }}
+							{{ end }}
             </ul>
           {{ end }}
           </div>
