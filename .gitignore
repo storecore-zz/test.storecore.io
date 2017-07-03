@@ -1,3 +1,7 @@
+# StoreCore #
+#############
+_site
+
 .idea
 public
 node_modules

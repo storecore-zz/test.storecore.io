@@ -1,33 +1,24 @@
-language: go
+language: python
+python:
+  - "3.6"
 sudo: false
-go: 1.7
-node_js: 6.9.0
-cache:
-  directories:
-  - "/node_modules"
-install:
-- ". $HOME/.nvm/nvm.sh"
-- nvm install stable
-- nvm use stable
-- npm install -g "gulpjs/gulp#4.0"
-- curl -sSL https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
-  | tar -zxf - -C /tmp/
-- mv /tmp/hugo_${HUGO_VERSION}_linux_amd64/hugo_${HUGO_VERSION}_linux_amd64 /tmp/hugo
-- rm -rf /tmp/hugo_${HUGO_VERSION}_linux_amd64
-- export PATH="/tmp:$PATH"
-script: npm install && gulp build:prod
+install: "pip install ampersand"
+script: "ampersand serve"
 after_success: |
-  if [ -n "$GITHUB_API_KEY" ] && [ ${TRAVIS_PULL_REQUEST} == "false" ] && [ $TRAVIS_BRANCH == "master" ]; then
-    cd ./public && cp ../CNAME ./CNAME
-    git init > /dev/null
-    git add .
-    git -c user.name='storecorebot' -c user.email='travis@storecore.org' commit --quiet -m "build ${TRAVIS_COMMIT::8}"
-    echo "Pushing content to GitHub"
-    git push --force --quiet "https://storecorebot:${GITHUB_API_KEY}@github.com/storecore/test.storecore.io.git" master:gh-pages > /dev/null
+  if [ -n "$GITHUB_API_KEY" ] && [ ${TRAVIS_PULL_REQUEST} == "false" ]; then
+    cd ./_site && cp ../CNAME ./CNAME
+    ls -la
+    find . -type f -name "*.html" -print0 | xargs -0 sed -i '' -e 's/ &amp;nbsp;/\ /g; s/&nbsp;/\ /g; s/&amp;/\&/g; s/&lt;/\</g; s/&gt;/\>/g; s/&quot;/\"/g; s/&#39;/\'"'"'/g'
   fi
-env:
-  global:
-  - secure: jljDDwtEZEgU/lzk4vsYuOWUSLJlSszjBmNhdFWELn54F/eBdhp5ZbUM9kLzHWZz8VkE+RQqCqkhH/gFb7oJnhGld5dmqKZwI14qCw5XWhvtQkFmJ3nF/XcpEg7e8L9YsTvMeWaaZ36xbTvi4/HEbgQYtomHmmo1Q+JoXEyEwlMAdxlr4YuhnoaYyGZqzUAW9IlhFU2KccwS1YVnbBR+O5DdDTG31lx04IN1Y8K00SJqCFv18bLf6ATEUv+7PBt7hpPV/cy1t8tEKunnk9CarN2xn8WrZerVUv2mHZqPv0iFa8bemTbURyJ3sS2wbsQmUKTLJ8Nx819Mf95+skTtuP/VP5UqeGU06fS49JdkhgJb8EBlYYkEzBCdPuUh2agoIDPO/sWRhHMjzZj6vLrHgORzYPoZxbpcuFaO8d7qUC2TtPz4RBpD73tZ2BoZv3tDOY4NT7PcVfHN9db8UQqKJoTYRVFNIdFDhbaPhUYKhCyiUZuK8WSrgxx3P0FrItH74o3CQkh7o2N/EiKsWODhZjPBMofQkaGnq5AxXJZ0I5IqnjXDQrbY4ArWA9J5vDxhC8WrVyYKAVdFjYsJ7B52BepyEn+QHXlNdYc2qf2OuLQhUtjS7EH0mIWlWFw77kZ/pDobYlPxdB+smEg2DB8fKNTUT6MSHR/p7N1DfeCLfm0=
+deploy:
+  provider: pages
+  local_dir: _site
+  email: travis@storecore.org
+  name: storecorebot
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
 notifications:
   slack:
     secure: EmmhXZ/pIC4q2nORnhvXy2X2ODSaazRD/j/4iSCRQ9nwvbPsWKELUvvN4pD1U9zjyVcTyNKpn0uIVv6O9A1iRL02m8jpodVd+F+TDALV2Yrbf44a4jYzCe7AcaIoAtbVSCEUMQz+0jq4vFHb8EwG1nR+/K6htk6M+KxD8vRrXXC999F+l50DmzFMuuR5Jdy15e95QjkX2OhzRndkr7sJO3PrvkrcQB1UeKrYn8jnpHz7ArGB9DpZ+nf5CuraCEkn5SmKhB1NinYj/3oK5B9m7rGSBD/8CKMiFnKK7pbYCPaAVwQorDTk2UV7T2I73d1WTqAQ3l2oUgJ3WL2he/K7fEp9vUezD7JyGuxDcfMojgMwOW4njj7MaXc52uZtXldbzyJjtwGa3FKfTfXfhGYGRgYJ6i5tqdv82VYOG63ITT/PPuhF5RjcHIVetGttpxxae14/067fmaPm7Mu6B4KPfqNn4LmaE0b30iLJdnxiUN0/vW6pXUaWxdlAStvvyTnpHnbecUIqk4pEH1NbvzmoQT49EVSTjynJH9gtwfEXkYeediCWeKSNTQYSX4WvmBq5JuE2p1mX2Iug8wrxRsqezkva7eSbbigoeyIfNVxRWYj27ZUkGJQE9Zt/z7WNnTl+TApT/4seqGM02k4TEhG/lKIVKL0WOaGZp0Cxlr1ECiU=

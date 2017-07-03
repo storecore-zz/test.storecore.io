@@ -1,0 +1,150 @@
+<html>
+<head>
+  <title>{{ config.name }}</title>
+  {{ layouts.head }}
+</head>
+<body>
+  <amp-sidebar class="mdl-layout__drawer" id="sidebar" layout="nodisplay">
+    {{ layouts.nav }}
+  </amp-sidebar>
+  <div class="mdl-layout sc-hero-layout-transparent">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    {{ layouts.header }}
+  </header>
+  <div aria-expanded="false" class="mdl-layout__drawer-button" on="tap:sidebar.open" role="button" tabindex="0">
+    <i class="material-icons">&#xE5D2;</i>
+  </div>
+    <main class="mdl-layout__content">
+        <article>
+          <header>
+            <h1><strong>Simple</strong> pricing</h1>
+          </header>
+
+          <section id="plans">
+            <table>
+              <thead>
+                <tr>
+                  <th width="33.33%"><i class="material-icons"></i></th>
+                  <th width="33.33%"><i class="material-icons"></i></th>
+                  <th width="33.34%"><i class="material-icons">&#xE838;&#xE838;&#xE838;&#xE838;&#xE838;</i></th>
+                </tr>
+                <tr>
+                  <th class="mdl-color--light-green-300">Free</th>
+                  <th class="mdl-color--light-blue-300">Pay As You Grow</th>
+                  <th class="mdl-color--light-blue-400">Premium</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mdl-color--light-green-300"><span class="price"><sup>€</sup>0</span></td>
+                  <td class="mdl-color--light-blue-300"><span class="price"><sup>€</sup>89</span> per month</td>
+                  <td class="mdl-color--light-blue-400"><span class="price"><sup>€</sup>289</span> per month</td>
+                </tr>
+                <tr>
+                  <td class="mdl-color--light-green-300">Free <abbr title="Do It Yourself">DIY</abbr> download</td>
+                  <td class="mdl-color--light-blue-300">Free installation</td>
+                  <td class="mdl-color--light-blue-400">Free installation</td>
+                </tr>
+                <tr>
+                  <td class="mdl-color--light-green-300">Hosting not included</td>
+                  <td class="mdl-color--light-blue-300">Fast dedicated hosting</td>
+                  <td class="mdl-color--light-blue-400">Fast dedicated hosting</td>
+                </tr>
+                <tr>
+                  <td class="mdl-color--light-green-300">No SSL certificate</td>
+                  <td class="mdl-color--light-blue-300">Free <abbr title="Domain Validation">DV</abbr> SSL certificate</td>
+                  <td class="mdl-color--light-blue-400">Free <abbr title="Extended Validation">EV</abbr> SSL certificate</td>
+                </tr>
+                <tr>
+                  <td class="mdl-color--light-green-300">GitHub community support</td>
+                  <td class="mdl-color--light-blue-300">E-mail ticketing support</td>
+                  <td class="mdl-color--light-blue-400">E-mail and phone support</td>
+                </tr>
+                <tr>
+                  <td class="mdl-color--light-green-300">Manual database backups</td>
+                  <td class="mdl-color--light-blue-300">Daily database backups</td>
+                  <td class="mdl-color--light-blue-400">Full database replication</td>
+                </tr>
+                <tr>
+                  <td class="mdl-color--light-green-300">·</td>
+                  <td class="mdl-color--light-blue-300">Fair use policy</td>
+                  <td class="mdl-color--light-blue-400">Unlimited server resources</td>
+                </tr>
+                <tr>
+                  <td class="mdl-color--light-green-300">·</td>
+                  <td class="mdl-color--light-blue-300">·</td>
+                  <td class="mdl-color--light-blue-400"><a href="#data-migration">Free data migration</a></td>
+                </tr>
+                <tr>
+                  <td class="mdl-color--light-green-300">·</td>
+                  <td class="mdl-color--light-blue-300">·</td>
+                  <td class="mdl-color--light-blue-400">Priority feature requests</td>
+                </tr>
+                <tr>
+                  <td class="mdl-color--light-green-300">Google Universal Analytics</td>
+                  <td class="mdl-color--light-blue-300">Google Universal Analytics</td>
+                  <td class="mdl-color--light-blue-400">Google Enhanced Ecommerce</td>
+                </tr>
+                <tr>
+                  <td class="mdl-color--light-green-300">Community Marketplace apps</td>
+                  <td class="mdl-color--light-blue-300">Community Marketplace apps</td>
+                  <td class="mdl-color--light-blue-400">All StoreCore apps included</td>
+                </tr>
+                <tr>
+                  <td class="mdl-color--light-green-300">Free</td>
+                  <td class="mdl-color--light-blue-300"><a href="#billing">One month free</a></td>
+                  <td class="mdl-color--light-blue-400"><a href="#billing">One month free</a></td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              <small>
+                Additional transaction fees, subscriptions, or other charges
+                may apply to third-party software and services.
+                <abbr title="Value-added tax">VAT</abbr> is not included.
+              </small>
+            </p>
+          </section>
+
+          <section>
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                <h2 id="billing"><i class="material-icons mdl-color-text--blue">&#xE8A1;</i> Monthly or annual billing</h2>
+                <p>
+                  Hosting plans are billed per month.  If you opt in for annual
+                  billing, you will be charged for 11 months and get
+                  1 month for free &mdash; each year.  New subscriptions
+                  include an additional month of free hosting to get you up and
+                  running.
+                </p>
+              </div>
+              <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                <h2><i class="material-icons">&#xE0CC;</i> Cancel a subscription</h2>
+                <p>
+                  You may cancel any StoreCore hosting plan subscription with
+                  a 30 day notice.  Upon cancellation, all your customer, order,
+                  and catalogue data remains yours and is accessible for easy
+                  transfer.
+                </p>
+              </div>
+              <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                <h2 id="data-migration"><i class="material-icons">&#xE0C3;</i> Data migration <span class="premium">Premium</span></h2>
+                <p>
+                  StoreCore Premium includes free migration of product data,
+                  product categories, and product brands for up to
+                  1 million products.  If your current data is
+                  sufficiently compatible with the StoreCore database
+                  architecture, we will also migrate up to 1 million
+                  customer accounts and all customer groups.  Because StoreCore
+                  employs very strong password encryption, your customers may
+                  have to reset their password once.
+                </p>
+              </div>
+            </div>
+          </section>
+        </article>
+      </main>
+      {{ layouts.footer }}
+    </div>
+  </body>
+</html>

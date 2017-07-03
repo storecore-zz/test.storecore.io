@@ -1,0 +1,30 @@
+{
+  "name": "StoreCore",
+  "primary": "en",
+  "layouts": "_layouts",
+  "modals": "_modals",
+  "modules": "_plugins",
+  "translations": "_trans",
+  "site": "_site",
+  "files": {
+    "index.html": {
+      "en": "_trans/en/index.json"
+    },
+    "contact.html": {
+      "en": "_trans/en/index.json"
+    },
+    "license.html": {
+      "en": "_trans/en/index.json"
+    },
+    "plans-and-pricing.html": {
+      "en": "_trans/en/index.json"
+    },
+    "privacy.html": {
+      "en": "_trans/en/index.json"
+    },
+    "thanks.html": {
+      "en": "_trans/en/index.json"
+    }
+  },
+  "plugins": {}
+}
