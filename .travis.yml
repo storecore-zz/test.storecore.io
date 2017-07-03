@@ -1,24 +1,13 @@
-language: go
+language: python
+python:
+  - "3.6"
 sudo: false
-go: 1.7
-node_js: 6.9.0
-cache:
-  directories:
-  - "/node_modules"
-install:
-- ". $HOME/.nvm/nvm.sh"
-- nvm install stable
-- nvm use stable
-- npm install -g "gulpjs/gulp#4.0"
-- curl -sSL https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
-  | tar -zxf - -C /tmp/
-- mv /tmp/hugo_${HUGO_VERSION}_linux_amd64/hugo_${HUGO_VERSION}_linux_amd64 /tmp/hugo
-- rm -rf /tmp/hugo_${HUGO_VERSION}_linux_amd64
-- export PATH="/tmp:$PATH"
-script: npm install && gulp build:prod
+install: "pip install ampersand"
+script: "ampersand serve"
 after_success: |
   if [ -n "$GITHUB_API_KEY" ] && [ ${TRAVIS_PULL_REQUEST} == "false" ] && [ $TRAVIS_BRANCH == "master" ]; then
-    cd ./public && cp ../CNAME ./CNAME
+    cd ./_site && cp ../CNAME ./CNAME
+    find . -type f -name "*.html" -print0 | xargs -0 sed -i '' -e 's/ &amp;nbsp;/\ /g; s/&nbsp;/\ /g; s/&amp;/\&/g; s/&lt;/\</g; s/&gt;/\>/g; s/&quot;/\"/g; s/&#39;/\'"'"'/g'
     git init > /dev/null
     git add .
     git -c user.name='storecorebot' -c user.email='travis@storecore.org' commit --quiet -m "build ${TRAVIS_COMMIT::8}"
