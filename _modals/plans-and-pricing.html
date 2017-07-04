@@ -1,15 +1,15 @@
 <html>
 <head>
   <title>{{ config.name }}</title>
-  {{ layouts.head }}
+  {{{ layouts.head }}}
 </head>
 <body>
   <amp-sidebar class="mdl-layout__drawer" id="sidebar" layout="nodisplay">
-    {{ layouts.nav }}
+    {{{ layouts.nav }}}
   </amp-sidebar>
   <div class="mdl-layout sc-hero-layout-transparent">
   <header class="mdl-layout__header mdl-layout__header--transparent">
-    {{ layouts.header }}
+    {{{ layouts.header }}}
   </header>
   <div aria-expanded="false" class="mdl-layout__drawer-button" on="tap:sidebar.open" role="button" tabindex="0">
     <i class="material-icons">&#xE5D2;</i>
@@ -144,7 +144,7 @@
           </section>
         </article>
       </main>
-      {{ layouts.footer }}
+      {{{ layouts.footer }}}
     </div>
   </body>
 </html>
