@@ -4,11 +4,6 @@ python:
 sudo: false
 install: "pip install ampersand"
 script: "ampersand serve"
-# after_success: |
-#   if [ ${TRAVIS_PULL_REQUEST} == "false" ]; then
-#     ls -la
-#     find . -type f -name "*.html" -print0 | xargs -0 sed -i '' -e 's/ &amp;nbsp;/\ /g; s/&nbsp;/\ /g; s/&amp;/\&/g; s/&lt;/\</g; s/&gt;/\>/g; s/&quot;/\"/g; s/&#39;/\'"'"'/g'
-#   fi
 deploy:
   provider: pages
   local_dir: _site
